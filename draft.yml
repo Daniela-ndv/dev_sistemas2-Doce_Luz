@@ -1,0 +1,39 @@
+models:
+  TipoProduto:
+    nome: string:60
+   
+  Status:
+    nome: string:60
+    
+  FormaPagamentoTipoCartao:
+    nome: string:60
+
+  Cartao:
+    tipo_id: integer
+    nomeTitular: string:100
+    numeroCartao: integer
+    dataValidade: date
+    codigoSeguranca: string:60
+
+  Produto:
+    nome: string:100
+    tipo_id: integer
+    codigo: string:40 nullable
+    valorCusto: decimal:6,2
+    valorVenda: decimal:6,2
+    descricao: string:200 nullable
+    imagem: string:200
+
+  Pedido: 
+    usuario_id: integer
+    forma_pagamento_id: integer
+    cartao_id: integer
+    status_id: integer
+    observacao: string:200 nullable
+
+  ItemVenda:
+    pedido_id: integer
+    produto_id: integer
+    quantidade: integer
+
+seeders: TipoProduto, Status, FormaPagamentoTipoCartao, Cartao, Produto, Pedido, ItemVenda

@@ -1,0 +1,37 @@
+created:
+    - database/factories/TipoProdutoFactory.php
+    - database/factories/StatusFactory.php
+    - database/factories/FormaPagamentoTipoCartaoFactory.php
+    - database/factories/CartaoFactory.php
+    - database/factories/ProdutoFactory.php
+    - database/factories/PedidoFactory.php
+    - database/factories/ItemVendaFactory.php
+    - database/migrations/2023_11_16_140406_create_tipo_produtos_table.php
+    - database/migrations/2023_11_16_140407_create_statuses_table.php
+    - database/migrations/2023_11_16_140408_create_forma_pagamento_tipo_cartaos_table.php
+    - database/migrations/2023_11_16_140409_create_cartaos_table.php
+    - database/migrations/2023_11_16_140410_create_produtos_table.php
+    - database/migrations/2023_11_16_140411_create_pedidos_table.php
+    - database/migrations/2023_11_16_140412_create_item_vendas_table.php
+    - app/Models/TipoProduto.php
+    - app/Models/Status.php
+    - app/Models/FormaPagamentoTipoCartao.php
+    - app/Models/Cartao.php
+    - app/Models/Produto.php
+    - app/Models/Pedido.php
+    - app/Models/ItemVenda.php
+    - database/seeders/TipoProdutoSeeder.php
+    - database/seeders/StatusSeeder.php
+    - database/seeders/FormaPagamentoTipoCartaoSeeder.php
+    - database/seeders/CartaoSeeder.php
+    - database/seeders/ProdutoSeeder.php
+    - database/seeders/PedidoSeeder.php
+    - database/seeders/ItemVendaSeeder.php
+models:
+    TipoProduto: { nome: 'string:60' }
+    Status: { nome: 'string:60' }
+    FormaPagamentoTipoCartao: { nome: 'string:60' }
+    Cartao: { tipo_id: integer, nomeTitular: 'string:100', numeroCartao: integer, dataValidade: date, codigoSeguranca: 'string:60' }
+    Produto: { nome: 'string:100', tipo_id: integer, codigo: 'string:40 nullable', valorCusto: 'decimal:6,2', valorVenda: 'decimal:6,2', descricao: 'string:200 nullable', imagem: 'string:200' }
+    Pedido: { usuario_id: integer, forma_pagamento_id: integer, cartao_id: integer, status_id: integer, observacao: 'string:200 nullable' }
+    ItemVenda: { pedido_id: integer, produto_id: integer, quantidade: integer }
