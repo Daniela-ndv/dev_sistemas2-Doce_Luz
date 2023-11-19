@@ -65,15 +65,14 @@ class CartaoController extends Controller
      */
     public function edit($id)
     {
-        /*$cartao = Cartao::find($id);
+        $cartao = Cartao::find($id);
 
         $pagamento = FormaPagamentoTipoCartao::orderBy('nome')->get();
 
         return view('cartao.form')->with([
         'cartao'=> $cartao,
         'pagamento'=> $pagamento]);
-        */
-        return view('cartao.form');
+
     }
 
     /**

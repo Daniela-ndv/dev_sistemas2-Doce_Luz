@@ -54,6 +54,7 @@
                     <th scope="col" class="px-6 py-4">Cartão</th>
                     <th scope="col" class="px-6 py-4">Status</th>
                     <th scope="col" class="px-6 py-4">Observação</th>
+                    <th scope="col" class="px-6 py-4">Ações</th>
                   </tr>
                 </thead>
                 @foreach ($pedidos as $item)

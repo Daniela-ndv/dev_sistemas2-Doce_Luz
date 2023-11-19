@@ -7,11 +7,10 @@
         <div class="w-5/6">
             <form action="{{ route('cartao.search') }}" method="post">
                 @csrf
-                <p>Filtrar por: </p> 
+                <p>Filtrar por: </p>
                 <select name="tipo" class="data-te-select-init rounded-md w-40">
                     <option value="nomeTitular">Titular</option>
-                    <option value="numeroCartao">Número cartão</option>
-                    <option value="dataValidade">Data validade</option>
+                    <option value="numeroCartao">N° cartão</option>
                 </select>
                 <input type="text" name="valor" class="data-te-select-init rounded-md w-80">
                 <button
@@ -49,8 +48,8 @@
                 <thead class="border-b font-medium dark:border-neutral-500">
                   <tr>
                     <th scope="col" class="px-6 py-4">ID</th>
-                    <th scope="col" class="px-6 py-4">Tipo</th>
-                    <th scope="col" class="px-6 py-4">Titular</th>
+                    <th scope="col" class="px-6 py-4">Tipo_id</th>
+                    <th scope="col" class="px-6 py-4">Nome titular</th>
                     <th scope="col" class="px-6 py-4">N° cartão</th>
                     <th scope="col" class="px-6 py-4">Data validade</th>
                     <th scope="col" class="px-6 py-4">Código segurança</th>
@@ -60,7 +59,7 @@
                 <tbody>
                   <tr class="border-b transition duration-300 ease-in-out hover:bg-neutral-200 dark:border-neutral-500 dark:hover:bg-neutral-600">
                     <td class="whitespace-nowrap px-6 py-4 font-medium">{{$item->id}}</td>
-                    <td class="whitespace-nowrap px-6 py-4">{{$item->tipo->nome ?? ""}}</td>
+                    <td class="whitespace-nowrap px-6 py-4">{{$item->tipo_id->nome ?? ""}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->nomeTitular}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->numeroCartao}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->dataValidade}}</td>

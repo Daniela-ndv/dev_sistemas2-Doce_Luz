@@ -30,15 +30,12 @@ class PedidoController extends Controller
         $pagamento = FormaPagamentoTipoCartao::orderBy('nome')->get();
         $cartao = Cartao::orderBy('nomeTitular')->get();
         $status = Status::orderBy('nome')->get();
-        $venda = ItemVenda::orderBy('pedido_id')->get();
 
         return view('pedido.form')->with([
             'usuario'=> $usuario,
             'pagamento'=> $pagamento,
             'cartao'=> $cartao,
-            'status'=> $status,
-            'venda'=> $venda
-        ]);
+            'status'=> $status ]);
     }
 
     /**
@@ -47,16 +44,15 @@ class PedidoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'usuario_id'=>'required|max:10',
-            'forma_pagamento_id'=>'required|max:10',
-            'cartao_id'=>'required|max:10',
-            'status_id'=>'required|max:10',
+            //'usuario_id'=>'required|max:10',
+            //'forma_pagamento_id'=>'required|max:10',
+            //'cartao_id'=>'required|max:10',
+            //'status_id'=>'required|max:10',
             'observacao'=>'required|max:200',
         ],[
-            'usuario_id.required'=>"O :attribute é obrigatório!",
-            'forma_pagamento_id.required'=>"O :attribute é obrigatório!",
-            'cartao_id.required'=>"O :attribute é obrigatório!",
-            'status_id.required'=>"O :attribute é obrigatório!",
+            //'usuario_id.required'=>"O :attribute é obrigatório!",
+            //'forma_pagamento_id.required'=>"O :attribute é obrigatório!",
+            //'cartao_id.required'=>"O :attribute é obrigatório!",
             'observacao.max'=>" Só é permitido 200 caracteres em :attribute !",
         ]);
 
@@ -83,15 +79,13 @@ class PedidoController extends Controller
         $pagamento = FormaPagamentoTipoCartao::orderBy('nome')->get();
         $cartao = Cartao::orderBy('nomeTitular')->get();
         $status = Status::orderBy('nome')->get();
-        $venda = ItemVenda::orderBy('pedido_id')->get();
+        //$venda = ItemVenda::orderBy('pedido_id')->get();
 
         return view('pedido.form')->with([
-        'pedido'=> $pedido,
         'usuario'=> $usuario,
         'pagamento'=> $pagamento,
         'cartao'=> $cartao,
-        'status'=> $status,
-        'venda'=> $venda ]);
+        'status'=> $status ]);
     }
 
     /**
@@ -100,16 +94,15 @@ class PedidoController extends Controller
     public function update(Request $request, Pedido $pedido)
     {
         $request->validate([
-            'usuario_id'=>'required|max:10',
-            'forma_pagamento_id'=>'required|max:10',
-            'cartao_id'=>'required|max:10',
-            'status_id'=>'required|max:10',
+            //'usuario_id'=>'required|max:10',
+            //'forma_pagamento_id'=>'required|max:10',
+            //'cartao_id'=>'required|max:10',
+            //'status_id'=>'required|max:10',
             'observacao'=>'required|max:200',
         ],[
-            'usuario_id.required'=>"O :attribute é obrigatório!",
-            'forma_pagamento_id.required'=>"O :attribute é obrigatório!",
-            'cartao_id.required'=>"O :attribute é obrigatório!",
-            'status_id.required'=>"O :attribute é obrigatório!",
+            //'usuario_id.required'=>"O :attribute é obrigatório!",
+            //'forma_pagamento_id.required'=>"O :attribute é obrigatório!",
+            //'cartao_id.required'=>"O :attribute é obrigatório!",
             'observacao.max'=>" Só é permitido 200 caracteres em :attribute !",
         ]);
 
@@ -124,7 +117,7 @@ class PedidoController extends Controller
             ['id'=>$request->id],
             $dados);
 
-        return redirect('pedido.edit')->with('success', "Atualizado com sucesso!");
+        return redirect('pedido')->with('success', "Atualizado com sucesso!");
     }
 
     /**
