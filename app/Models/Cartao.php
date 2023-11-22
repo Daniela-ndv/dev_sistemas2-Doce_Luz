@@ -29,7 +29,7 @@ class Cartao extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'dataValidade' => 'date',
+        //'dataValidade' => 'date',
     ];
 
     public function tipo_cartao(){

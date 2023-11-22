@@ -41,21 +41,21 @@
                 <div class="w-1/2 mr-2">
                     <label class="block">
                         <span class="text-gray-700">N° cartão</span>
-                        <input type="text" name="numeroCartao" placeholder=" " class="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                        <input type="number" name="numeroCartao" placeholder=" " class="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                         value="@if(!empty($cartao->numeroCartao)){{$cartao->numeroCartao}}@elseif(!empty(old('numeroCartao'))){{old('numeroCartao')}}@else{{''}}@endif">
                     </label><br><br>
                 </div>
                 <div class="w-1/2 mr-2">
                     <label class="block">
                         <span class="text-gray-700">Data de validade</span>
-                        <input type="text" name="dataValidade" placeholder=" " class="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                        <input type="date" name="dataValidade" placeholder=" " class="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                         value="@if(!empty($cartao->dataValidade)){{$cartao->dataValidade}}@elseif(!empty(old('dataValidade'))){{old('dataValidade')}}@else{{''}}@endif">
                     </label><br><br>
                 </div>
                 <div class="w-1/2 mr-2">
                     <label class="block">
                         <span class="text-gray-700">Código segurança</span>
-                        <input type="text" name="codigoSeguranca" placeholder=" " class="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                        <input type="number" name="codigoSeguranca" placeholder=" " class="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                         value="@if(!empty($cartao->codigoSeguranca)){{$cartao->codigoSeguranca}}@elseif(!empty(old('codigoSeguranca'))){{old('codigoSeguranca')}}@else{{''}}@endif">
                     </label><br><br>
                 </div>
