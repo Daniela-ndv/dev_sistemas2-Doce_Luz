@@ -38,8 +38,7 @@
                         <select name="usuario_id" id="" class="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black">
                             @foreach ($usuario as $item)
                                 <option value="{{ $item->id }}"
-                                    @if(!empty($pedido->id)){{ ( $item->id == $pedido->usuario_id) ? 'selected' : '' }}
-                                    @else{{ '' }}@endif >{{$item->nome}}
+                                    @if(!empty($pedido->id)){{ ( $item->id == $pedido->usuario_id) ? 'selected' : '' }} @else{{ '' }}@endif >{{$item->name}}
                                 </option>
                             @endforeach
                         </select>
@@ -54,8 +53,7 @@
                         <select name="cartao_id" id="" class="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black">
                             @foreach ($cartao as $item)
                                 <option value="{{ $item->id }}"
-                                    @if(!empty($pedido->id)){{ ( $item->id == $pedido->cartao_id) ? 'selected' : '' }}
-                                    @else{{ '' }}@endif >{{$item->nome}}
+                                    @if(!empty($pedido->id)){{ ( $item->id == $pedido->cartao_id) ? 'selected' : '' }}@else{{ '' }}@endif >{{$item->numeroCartao}}
                                 </option>
                             @endforeach
                         </select>
