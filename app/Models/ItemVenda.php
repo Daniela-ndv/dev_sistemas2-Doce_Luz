@@ -28,16 +28,4 @@ class ItemVenda extends Model
     protected $casts = [
         'id' => 'integer',
     ];
-
-    public function pedido(){
-        //relacionamento 1 - 1
-        return $this->belongsTo(Pedido::class,
-        'pedido_id','id');
-    }
-
-    public function produto(){
-        //relacionamento 1 - 1
-        return $this->belongsTo(Produto::class,
-        'produto_id','id');
-    }
 }

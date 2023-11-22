@@ -26,9 +26,4 @@ class Status extends Model
     protected $casts = [
         'id' => 'integer',
     ];
-
-    public function pedido(){ 
-        //relacionamento 1 - n
-        return $this->hasMany(Pedido::class);
-    }
 }

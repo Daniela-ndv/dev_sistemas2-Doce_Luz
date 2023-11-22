@@ -34,21 +34,4 @@ class Produto extends Model
         'valorCusto' => 'decimal:2',
         'valorVenda' => 'decimal:2',
     ];
-
-    public function tipo_produto(){
-        //relacionamento 1 - 1
-        return $this->belongsTo(FormaPagamentoTipoCartao::class,
-        'tipo_id','id');
-    }
-
-    public function item_venda(){ 
-        //relacionamento 1 - n
-        return $this->hasMany(ItemVenda::class);
-    }
-
-    public function pedidos(){
-        //relacionamento n - n 
-        return $this->belongsToMany(Pedido::class,
-            'item_venda','id');
-    }//'item_venda': tabela intermediária
 }

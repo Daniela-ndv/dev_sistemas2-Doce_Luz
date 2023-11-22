@@ -5,12 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProdutoStoreRequest;
 use App\Http\Requests\ProdutoUpdateRequest;
 use App\Models\Produto;
-use App\Models\TipoProduto;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class ProdutoController extends Controller
+class StatusController extends Controller
 {
     public function index(Request $request): View
     {
@@ -21,9 +20,7 @@ class ProdutoController extends Controller
 
     public function create(Request $request): View
     {
-        $tipo = TipoProduto::orderBy('nome')->get();
-
-        return view('produto.form')->with(['tipo'=>$tipo]);
+        return view('produto.form');
     }
 
     public function store(ProdutoStoreRequest $request): RedirectResponse
@@ -42,34 +39,23 @@ class ProdutoController extends Controller
 
     public function edit(Request $request, Produto $produto): View
     {
-        $produto = Produto::find($request->id);
-
-        $tipo = TipoProduto::orderBy('nome')->get();
-
-        return view('cartao.form')->with([
-        'produto'=> $produto,
-        'tipo'=> $tipo]);
+        return view('produto.form', compact('produto'));
     }
 
     public function update(ProdutoUpdateRequest $request, Produto $produto): RedirectResponse
-    {$request->validated();
+    {
+        $produto->update($request->validated());
 
-    Produto::UpdateOrCreate(
-        ['id'=>$request->id],
-        $produto);
+        $request->session()->flash('produto.id', $produto->id);
 
-    return redirect('produto')->with('success', "Atualizado com sucesso!");
-
+        return redirect()->route('produto.index');
     }
 
     public function destroy(Request $request, Produto $produto): RedirectResponse
     {
-        $produto = Produto::findOrFail($request->id);
-
         $produto->delete();
 
-        return redirect('produto')->with('success', "Deletado com sucesso!");
-
+        return redirect()->route('produto.index');
     }
 
     public function search(Request $request)

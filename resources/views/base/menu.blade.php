@@ -7,10 +7,10 @@
         </a>
       </div>
       <div class="hidden lg:flex lg:gap-x-12 items-center justify-between">
-        <a href="#" class="hover:text-blue-600">Item</a>
-        <a href="#" class="hover:text-blue-600">Item</a>
+        <a href="{{ route('pedido.index') }}" class="hover:text-blue-600">Index</a>
         <a href="{{ route('pedido.index') }}" class="hover:text-blue-600">Pedidos</a>
         <a href="{{ route('cartao.index') }}" class="hover:text-blue-600">Cartões</a>
+        <a href="{{ route('produto.index') }}" class="hover:text-blue-600">Produto</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
       </div>

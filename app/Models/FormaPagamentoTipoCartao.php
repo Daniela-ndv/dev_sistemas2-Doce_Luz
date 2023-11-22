@@ -26,14 +26,4 @@ class FormaPagamentoTipoCartao extends Model
     protected $casts = [
         'id' => 'integer',
     ];
-
-    public function cartao(){ 
-        //relacionamento 1 - n
-        return $this->hasMany(Cartao::class);
-    }
-
-    public function pedido(){ 
-        //relacionamento 1 - n
-        return $this->hasMany(Pedido::class);
-    }
 }

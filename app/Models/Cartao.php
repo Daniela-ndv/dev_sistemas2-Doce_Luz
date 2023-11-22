@@ -29,17 +29,6 @@ class Cartao extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        //'dataValidade' => 'date',
+        'dataValidade' => 'date',
     ];
-
-    public function tipo_cartao(){
-        //relacionamento 1 - 1
-        return $this->belongsTo(FormaPagamentoTipoCartao::class,
-        'tipo_id','id');
-    }
-
-    public function pedido(){ 
-        //relacionamento 1 - n
-        return $this->hasMany(Pedido::class);
-    }
 }
