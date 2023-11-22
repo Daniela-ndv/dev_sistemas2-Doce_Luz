@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
-            $table->integer('usuario_id');
-            $table->integer('forma_pagamento_id');
-            $table->integer('cartao_id');
-            $table->integer('status_id');
+            $table->foreignId('usuario_id')->constrained('users')->default(null)->onDelete('cascade');
+            $table->foreignId('forma_pagamento_id')->constrained('forma_pagamento_tipo_cartaos')->default(null)->onDelete('cascade');
+            $table->foreignId('cartao_id')->constrained('cartaos')->default(null)->onDelete('cascade');
+            $table->foreignId('status_id')->constrained('statuses')->default(null)->onDelete('cascade');
             $table->string('observacao', 200)->nullable();
             $table->timestamps();
         });

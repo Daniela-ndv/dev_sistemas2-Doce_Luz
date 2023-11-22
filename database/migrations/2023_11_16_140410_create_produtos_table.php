@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
             $table->string('nome', 100);
-            $table->integer('tipo_id');
+            $table->foreignId('tipo_id')->constrained('tipo_produtos')->default(null)->onDelete('cascade');
             $table->string('codigo', 40)->nullable();
             $table->decimal('valorCusto', 6, 2);
             $table->decimal('valorVenda', 6, 2);

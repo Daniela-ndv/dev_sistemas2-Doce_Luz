@@ -22,28 +22,25 @@ USE `db_doce_luz`;
 -- Copiando estrutura para tabela db_doce_luz.cartaos
 CREATE TABLE IF NOT EXISTS `cartaos` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `tipo_id` int NOT NULL,
+  `tipo_id` bigint unsigned NOT NULL,
   `nomeTitular` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `numeroCartao` int NOT NULL,
   `dataValidade` date NOT NULL,
   `codigoSeguranca` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  PRIMARY KEY (`id`),
+  KEY `cartaos_tipo_id_foreign` (`tipo_id`),
+  CONSTRAINT `cartaos_tipo_id_foreign` FOREIGN KEY (`tipo_id`) REFERENCES `forma_pagamento_tipo_cartaos` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela db_doce_luz.cartaos: ~10 rows (aproximadamente)
+-- Copiando dados para a tabela db_doce_luz.cartaos: ~5 rows (aproximadamente)
 INSERT INTO `cartaos` (`id`, `tipo_id`, `nomeTitular`, `numeroCartao`, `dataValidade`, `codigoSeguranca`, `created_at`, `updated_at`) VALUES
-	(1, 1, 'Sra. Ruth de Souza Correia', 4038843, '2016-12-12', '34736', NULL, NULL),
-	(2, 3, 'Arthur Allan Serra', 657570104, '1988-01-15', '8', NULL, NULL),
-	(3, 3, 'Dr. Christian Matias Alves Filho', 384, '1995-11-08', '8105428', NULL, NULL),
-	(4, 1, 'Arthur Valentin Garcia', 64, '1984-07-08', '4012', NULL, NULL),
-	(5, 4, 'Daiana Carrara Neto', 599, '1989-12-29', '55', NULL, NULL),
-	(6, 5, 'Giovane Valdez Jr.', 927884, '1996-10-07', '23', NULL, NULL),
-	(7, 5, 'Juliana Rangel Sobrinho', 824887, '1995-09-04', '359', NULL, NULL),
-	(8, 2, 'Silvana Renata Mascarenhas Jr.', 8, '2019-05-29', '61437', NULL, NULL),
-	(9, 5, 'Antônio Ávila Padrão', 113, '2022-07-15', '2', NULL, NULL),
-	(10, 4, 'Valentina Souza Maldonado Sobrinho', 9781, '2018-07-27', '95069860', NULL, NULL);
+	(1, 3, 'Sr. Jerônimo Escobar Jr.', 154553, '1996-06-11', '31', NULL, NULL),
+	(2, 1, 'Srta. Juliane Estrada', 37, '2004-08-17', '675', NULL, NULL),
+	(3, 4, 'Bella Stella Pereira', 7469, '1982-09-16', '22', NULL, NULL),
+	(4, 3, 'Michael Serna Flores Sobrinho', 499844, '2001-08-14', '26246', NULL, NULL),
+	(5, 3, 'Edilson Valente Mendes Filho', 584467, '2015-12-22', '7773826', NULL, NULL);
 
 -- Copiando estrutura para tabela db_doce_luz.failed_jobs
 CREATE TABLE IF NOT EXISTS `failed_jobs` (
@@ -69,42 +66,41 @@ CREATE TABLE IF NOT EXISTS `forma_pagamento_tipo_cartaos` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela db_doce_luz.forma_pagamento_tipo_cartaos: ~5 rows (aproximadamente)
+-- Copiando dados para a tabela db_doce_luz.forma_pagamento_tipo_cartaos: ~10 rows (aproximadamente)
 INSERT INTO `forma_pagamento_tipo_cartaos` (`id`, `nome`, `created_at`, `updated_at`) VALUES
-	(1, 'voluptatem', NULL, NULL),
-	(2, 'voluptas', NULL, NULL),
-	(3, 'porro', NULL, NULL),
-	(4, 'voluptatibus', NULL, NULL),
-	(5, 'qui', NULL, NULL),
-	(6, 'molestiae', NULL, NULL),
-	(7, 'laboriosam', NULL, NULL),
-	(8, 'quas', NULL, NULL),
-	(9, 'maiores', NULL, NULL),
-	(10, 'consequatur', NULL, NULL);
+	(1, 'dolores', NULL, NULL),
+	(2, 'qui', NULL, NULL),
+	(3, 'perspiciatis', NULL, NULL),
+	(4, 'sunt', NULL, NULL),
+	(5, 'sit', NULL, NULL),
+	(6, 'nam', NULL, NULL),
+	(7, 'optio', NULL, NULL),
+	(8, 'officiis', NULL, NULL),
+	(9, 'velit', NULL, NULL),
+	(10, 'et', NULL, NULL);
 
 -- Copiando estrutura para tabela db_doce_luz.item_vendas
 CREATE TABLE IF NOT EXISTS `item_vendas` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `pedido_id` int NOT NULL,
-  `produto_id` int NOT NULL,
+  `pedido_id` bigint unsigned NOT NULL,
+  `produto_id` bigint unsigned NOT NULL,
   `quantidade` int NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  PRIMARY KEY (`id`),
+  KEY `item_vendas_pedido_id_foreign` (`pedido_id`),
+  KEY `item_vendas_produto_id_foreign` (`produto_id`),
+  CONSTRAINT `item_vendas_pedido_id_foreign` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `item_vendas_produto_id_foreign` FOREIGN KEY (`produto_id`) REFERENCES `produtos` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela db_doce_luz.item_vendas: ~5 rows (aproximadamente)
 INSERT INTO `item_vendas` (`id`, `pedido_id`, `produto_id`, `quantidade`, `created_at`, `updated_at`) VALUES
-	(1, 4, 5, 1462, NULL, NULL),
-	(2, 1, 4, 9973, NULL, NULL),
-	(3, 3, 3, 8498, NULL, NULL),
-	(4, 1, 2, 7863, NULL, NULL),
-	(5, 3, 3, 1956, NULL, NULL),
-	(6, 1, 5, 8984, NULL, NULL),
-	(7, 2, 3, 4355, NULL, NULL),
-	(8, 3, 3, 3588, NULL, NULL),
-	(9, 3, 5, 322, NULL, NULL),
-	(10, 5, 1, 5930, NULL, NULL);
+	(1, 2, 1, 1549, NULL, NULL),
+	(2, 1, 4, 1850, NULL, NULL),
+	(3, 4, 4, 1456, NULL, NULL),
+	(4, 1, 5, 3196, NULL, NULL),
+	(5, 3, 5, 6039, NULL, NULL);
 
 -- Copiando estrutura para tabela db_doce_luz.migrations
 CREATE TABLE IF NOT EXISTS `migrations` (
@@ -141,28 +137,31 @@ CREATE TABLE IF NOT EXISTS `password_reset_tokens` (
 -- Copiando estrutura para tabela db_doce_luz.pedidos
 CREATE TABLE IF NOT EXISTS `pedidos` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `usuario_id` int NOT NULL,
-  `forma_pagamento_id` int NOT NULL,
-  `cartao_id` int NOT NULL,
-  `status_id` int NOT NULL,
+  `usuario_id` bigint unsigned NOT NULL,
+  `forma_pagamento_id` bigint unsigned NOT NULL,
+  `cartao_id` bigint unsigned NOT NULL,
+  `status_id` bigint unsigned NOT NULL,
   `observacao` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  PRIMARY KEY (`id`),
+  KEY `pedidos_usuario_id_foreign` (`usuario_id`),
+  KEY `pedidos_forma_pagamento_id_foreign` (`forma_pagamento_id`),
+  KEY `pedidos_cartao_id_foreign` (`cartao_id`),
+  KEY `pedidos_status_id_foreign` (`status_id`),
+  CONSTRAINT `pedidos_cartao_id_foreign` FOREIGN KEY (`cartao_id`) REFERENCES `cartaos` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `pedidos_forma_pagamento_id_foreign` FOREIGN KEY (`forma_pagamento_id`) REFERENCES `forma_pagamento_tipo_cartaos` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `pedidos_status_id_foreign` FOREIGN KEY (`status_id`) REFERENCES `statuses` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `pedidos_usuario_id_foreign` FOREIGN KEY (`usuario_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela db_doce_luz.pedidos: ~5 rows (aproximadamente)
 INSERT INTO `pedidos` (`id`, `usuario_id`, `forma_pagamento_id`, `cartao_id`, `status_id`, `observacao`, `created_at`, `updated_at`) VALUES
-	(1, 5, 4, 1, 3, 'Quod et ducimus cum cupiditate inventore.', NULL, NULL),
-	(2, 1, 3, 3, 3, 'In aut eum nulla.', NULL, NULL),
-	(3, 3, 4, 1, 2, 'Aut autem velit labore sit doloribus.', NULL, NULL),
-	(4, 4, 1, 4, 4, 'Repellendus deserunt nobis est fugiat tempora.', NULL, NULL),
-	(5, 4, 1, 4, 5, 'Corrupti est maxime illo ipsum.', NULL, NULL),
-	(6, 2, 3, 1, 5, 'Ut alias voluptate atque repudiandae iste alias.', NULL, NULL),
-	(7, 2, 1, 4, 4, 'Sit consequatur atque iusto inventore.', NULL, NULL),
-	(8, 2, 3, 1, 1, 'Nam impedit hic a ab debitis.', NULL, NULL),
-	(9, 5, 3, 1, 4, 'Sit aut illum deleniti exercitationem.', NULL, NULL),
-	(10, 4, 2, 2, 4, 'Ut culpa quod pariatur autem eveniet.', NULL, NULL);
+	(1, 5, 5, 1, 5, 'Eos molestiae omnis laboriosam tempore.', NULL, NULL),
+	(2, 1, 3, 1, 4, 'Excepturi sit earum tempora necessitatibus.', NULL, NULL),
+	(3, 2, 3, 4, 5, 'Voluptas neque repellat velit magnam expedita nihil.', NULL, NULL),
+	(4, 5, 4, 2, 5, 'Incidunt velit fugiat tenetur.', NULL, NULL),
+	(5, 4, 3, 4, 1, 'Sequi ut iure non laborum adipisci quos.', NULL, NULL);
 
 -- Copiando estrutura para tabela db_doce_luz.personal_access_tokens
 CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
@@ -187,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
 CREATE TABLE IF NOT EXISTS `produtos` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tipo_id` int NOT NULL,
+  `tipo_id` bigint unsigned NOT NULL,
   `codigo` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `valorCusto` decimal(6,2) NOT NULL,
   `valorVenda` decimal(6,2) NOT NULL,
@@ -195,21 +194,18 @@ CREATE TABLE IF NOT EXISTS `produtos` (
   `imagem` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  PRIMARY KEY (`id`),
+  KEY `produtos_tipo_id_foreign` (`tipo_id`),
+  CONSTRAINT `produtos_tipo_id_foreign` FOREIGN KEY (`tipo_id`) REFERENCES `tipo_produtos` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela db_doce_luz.produtos: ~10 rows (aproximadamente)
+-- Copiando dados para a tabela db_doce_luz.produtos: ~5 rows (aproximadamente)
 INSERT INTO `produtos` (`id`, `nome`, `tipo_id`, `codigo`, `valorCusto`, `valorVenda`, `descricao`, `imagem`, `created_at`, `updated_at`) VALUES
-	(1, 'eveniet', 5, '4', 96.19, 1262.67, 'Voluptatibus esse molestiae nobis.', 'public/storage/imagem/produto\\09eb24867082d4e558744873bffd276a.png', NULL, NULL),
-	(2, 'architecto', 5, '70', 179.04, 851.74, 'Ut doloribus quasi repellendus omnis aut.', 'public/storage/imagem/produto\\09eb24867082d4e558744873bffd276a.png', NULL, NULL),
-	(3, 'aliquam', 5, '741723337', 1612.52, 735.47, 'Quod aut et occaecati ipsa.', 'public/storage/imagem/produto\\09eb24867082d4e558744873bffd276a.png', NULL, NULL),
-	(4, 'ut', 2, '4568', 326.00, 152.83, 'Pariatur suscipit at quia vitae sed.', 'public/storage/imagem/produto\\09eb24867082d4e558744873bffd276a.png', NULL, NULL),
-	(5, 'excepturi', 2, '59', 721.89, 1793.80, 'Quos quo temporibus nemo ratione.', 'public/storage/imagem/produto\\09eb24867082d4e558744873bffd276a.png', NULL, NULL),
-	(6, 'quia', 5, '5', 917.26, 368.72, 'Et animi voluptate animi.', 'public/storage/imagem/produto\\09eb24867082d4e558744873bffd276a.png', NULL, NULL),
-	(7, 'et', 1, '56105', 1262.61, 1191.42, 'Ut atque repellendus doloribus dignissimos.', 'public/storage/imagem/produto\\a24439716bd43e51b05a560c18b2c03e.png', NULL, NULL),
-	(8, 'rerum', 4, '87', 479.80, 1172.83, 'Necessitatibus laboriosam impedit magnam ea ipsa sunt.', 'public/storage/imagem/produto\\09eb24867082d4e558744873bffd276a.png', NULL, NULL),
-	(9, 'unde', 2, '25227', 890.72, 277.71, 'Soluta perspiciatis qui temporibus possimus est.', 'public/storage/imagem/produto\\09eb24867082d4e558744873bffd276a.png', NULL, NULL),
-	(10, 'dignissimos', 1, '392080411', 37.43, 1061.72, 'Fuga minus est quam et soluta.', 'public/storage/imagem/produto\\09eb24867082d4e558744873bffd276a.png', NULL, NULL);
+	(1, 'excepturi', 4, '25574180', 35.86, 384.66, 'Reiciendis provident quam dolorem quae.', 'public/storage/imagem/produto\\1835765eae5941a3b53119fa738c97d2.png', NULL, NULL),
+	(2, 'a', 4, '5', 892.23, 1163.32, 'Quae id laudantium reiciendis enim vel.', 'public/storage/imagem/produto\\c4aeef4a0db0e277c5a4f7b06acd6aae.png', NULL, NULL),
+	(3, 'laborum', 3, '954471538', 1187.15, 1689.60, 'Ad saepe nam expedita.', 'public/storage/imagem/produto\\55c0431fd4609fa2324c8a30a93a8d5a.png', NULL, NULL),
+	(4, 'et', 3, '610371', 993.53, 219.87, 'Quas nihil consectetur necessitatibus non.', 'public/storage/imagem/produto\\be8d4d222ec2d370efccca188d86c964.png', NULL, NULL),
+	(5, 'tenetur', 3, '995685400', 966.36, 1280.22, 'Consequatur rerum fuga animi mollitia.', 'public/storage/imagem/produto\\bb09b3d5ee6c59c6aa212d8d625bd4ef.png', NULL, NULL);
 
 -- Copiando estrutura para tabela db_doce_luz.statuses
 CREATE TABLE IF NOT EXISTS `statuses` (
@@ -220,18 +216,18 @@ CREATE TABLE IF NOT EXISTS `statuses` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela db_doce_luz.statuses: ~5 rows (aproximadamente)
+-- Copiando dados para a tabela db_doce_luz.statuses: ~10 rows (aproximadamente)
 INSERT INTO `statuses` (`id`, `nome`, `created_at`, `updated_at`) VALUES
-	(1, 'adipisci', NULL, NULL),
-	(2, 'a', NULL, NULL),
-	(3, 'impedit', NULL, NULL),
-	(4, 'necessitatibus', NULL, NULL),
-	(5, 'ipsam', NULL, NULL),
-	(6, 'officiis', NULL, NULL),
-	(7, 'velit', NULL, NULL),
-	(8, 'enim', NULL, NULL),
-	(9, 'occaecati', NULL, NULL),
-	(10, 'dolor', NULL, NULL);
+	(1, 'deserunt', NULL, NULL),
+	(2, 'voluptas', NULL, NULL),
+	(3, 'culpa', NULL, NULL),
+	(4, 'voluptatem', NULL, NULL),
+	(5, 'natus', NULL, NULL),
+	(6, 'rerum', NULL, NULL),
+	(7, 'vitae', NULL, NULL),
+	(8, 'iure', NULL, NULL),
+	(9, 'consequuntur', NULL, NULL),
+	(10, 'consectetur', NULL, NULL);
 
 -- Copiando estrutura para tabela db_doce_luz.tipo_produtos
 CREATE TABLE IF NOT EXISTS `tipo_produtos` (
@@ -242,18 +238,18 @@ CREATE TABLE IF NOT EXISTS `tipo_produtos` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela db_doce_luz.tipo_produtos: ~5 rows (aproximadamente)
+-- Copiando dados para a tabela db_doce_luz.tipo_produtos: ~10 rows (aproximadamente)
 INSERT INTO `tipo_produtos` (`id`, `nome`, `created_at`, `updated_at`) VALUES
-	(1, 'omnis', NULL, NULL),
-	(2, 'voluptas', NULL, NULL),
-	(3, 'totam', NULL, NULL),
-	(4, 'et', NULL, NULL),
-	(5, 'eos', NULL, NULL),
-	(6, 'aspernatur', NULL, NULL),
-	(7, 'est', NULL, NULL),
-	(8, 'sint', NULL, NULL),
-	(9, 'odit', NULL, NULL),
-	(10, 'veritatis', NULL, NULL);
+	(1, 'veritatis', NULL, NULL),
+	(2, 'eligendi', NULL, NULL),
+	(3, 'magnam', NULL, NULL),
+	(4, 'quas', NULL, NULL),
+	(5, 'voluptatem', NULL, NULL),
+	(6, 'optio', NULL, NULL),
+	(7, 'at', NULL, NULL),
+	(8, 'reprehenderit', NULL, NULL),
+	(9, 'illum', NULL, NULL),
+	(10, 'eum', NULL, NULL);
 
 -- Copiando estrutura para tabela db_doce_luz.users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -269,18 +265,18 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela db_doce_luz.users: ~5 rows (aproximadamente)
+-- Copiando dados para a tabela db_doce_luz.users: ~10 rows (aproximadamente)
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-	(1, 'James Barreto', 'qcruz@leon.com', NULL, '("Am-w?O\\LGp#K,@-w', NULL, NULL, NULL),
-	(2, 'Simon Nelson Ferreira', 'isabelly49@faro.org', NULL, 'Yald&>zJ`lD4(OQph;A', NULL, NULL, NULL),
-	(3, 'Anderson Serra Jr.', 'paulo.chaves@casanova.net.br', NULL, 'o\\ET`l]4v', NULL, NULL, NULL),
-	(4, 'Sr. Saulo Medina Escobar Neto', 'salazar.agostinho@bittencourt.com', NULL, '\\[}JrlS{N', NULL, NULL, NULL),
-	(5, 'Enzo Ferreira Neto', 'breno.camacho@ig.com.br', NULL, '7t),Vk', NULL, NULL, NULL),
-	(6, 'Sr. Nero das Neves Dominato', 'pcarmona@grego.com.br', NULL, 'W;\'GuN"z(I^,6xhuLlQ', NULL, NULL, NULL),
-	(7, 'Fernando Roque Jr.', 'jimenes.isis@ig.com.br', NULL, '5Q*gq4YVyR<"S"2^}v', NULL, NULL, NULL),
-	(8, 'Dr. Estela Escobar Neto', 'gbarreto@yahoo.com', NULL, '1]SbV0FAU_0\'', NULL, NULL, NULL),
-	(9, 'Dr. Sergio Matos Ferreira Filho', 'ntamoio@leal.net.br', NULL, '\\a~l\'m<y$BT4.(m_}m,', NULL, NULL, NULL),
-	(10, 'Dr. Natália Dominato Filho', 'lovato.henrique@padilha.net', NULL, '\\_qM1?gLf@ajSG5Q}/', NULL, NULL, NULL);
+	(1, 'Dr. Roberta Faria Franco Jr.', 'tais.pena@meireles.org', NULL, '1/<g?hD', NULL, NULL, NULL),
+	(2, 'Rebeca Rangel Sobrinho', 'tmarinho@zaragoca.com', NULL, '9y?Ws35,5', NULL, NULL, NULL),
+	(3, 'Marília Sandoval Prado', 'aquintana@sanches.com.br', NULL, 'pJ6IY/\\7', NULL, NULL, NULL),
+	(4, 'Gean Inácio Vieira', 'willian92@furtado.com.br', NULL, 'H9!`;&LFe,al6!T0ix', NULL, NULL, NULL),
+	(5, 'Luciano Murilo Pedrosa', 'marinho.alice@hotmail.com', NULL, 'x>O"M}oQc*@U:~', NULL, NULL, NULL),
+	(6, 'Dr. Richard Godói', 'antonio.sandoval@valentin.net.br', NULL, 'K@>3^Dt_k<)(]i', NULL, NULL, NULL),
+	(7, 'Dr. Iasmin Lourenço Filho', 'tatiana41@hotmail.com', NULL, 'p"p.w4s%KfQIn|Hcf=}', NULL, NULL, NULL),
+	(8, 'Sr. Tomás Emerson Rodrigues Jr.', 'vtorres@uol.com.br', NULL, '0{o7xY=?q<k4_3ZV', NULL, NULL, NULL),
+	(9, 'Murilo Batista Godói', 'barros.caio@bonilha.com.br', NULL, 'GsP\'wIr:rNN$u', NULL, NULL, NULL),
+	(10, 'Dr. Allison Chaves D\'ávila', 'rogerio90@uol.com.br', NULL, 'xyivMP0r/R#H~)?aK@E', NULL, NULL, NULL);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

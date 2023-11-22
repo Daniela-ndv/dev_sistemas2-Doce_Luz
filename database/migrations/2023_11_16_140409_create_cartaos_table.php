@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('cartaos', function (Blueprint $table) {
             $table->id();
-            $table->integer('tipo_id');
+            $table->foreignId('tipo_id')->constrained('forma_pagamento_tipo_cartaos')->default(null)->onDelete('cascade');
             $table->string('nomeTitular', 100);
             $table->integer('numeroCartao');
             $table->date('dataValidade');
