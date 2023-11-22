@@ -61,10 +61,10 @@
                 <tbody>
                   <tr class="border-b transition duration-300 ease-in-out hover:bg-neutral-200 dark:border-neutral-500 dark:hover:bg-neutral-600">
                     <td class="whitespace-nowrap px-6 py-4 font-medium">{{$item->id}}</td>
-                    <td class="whitespace-nowrap px-6 py-4">{{$item->usuario_id->nome ?? ""}}</td>
-                    <td class="whitespace-nowrap px-6 py-4">{{$item->forma_pagamento_id->nome ?? ""}}</td>
-                    <td class="whitespace-nowrap px-6 py-4">{{$item->cartao_id->nome ?? ""}}</td>
-                    <td class="whitespace-nowrap px-6 py-4">{{$item->status_id->nome ?? ""}}</td>
+                    <td class="whitespace-nowrap px-6 py-4">{{$item->usuario->name ?? ""}}</td>
+                    <td class="whitespace-nowrap px-6 py-4">{{$item->formaPagamento->nome ?? ""}}</td>
+                    <td class="whitespace-nowrap px-6 py-4">{{$item->cartao->nome ?? ""}}</td>
+                    <td class="whitespace-nowrap px-6 py-4">{{$item->status->nome ?? ""}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->observacao}}</td>
                     <td class="whitespace-nowrap px-6 py-4">
                         <a href="{{route('pedido.edit', $item->id)}}">

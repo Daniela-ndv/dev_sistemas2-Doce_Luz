@@ -59,7 +59,7 @@
                 <tbody>
                   <tr class="border-b transition duration-300 ease-in-out hover:bg-neutral-200 dark:border-neutral-500 dark:hover:bg-neutral-600">
                     <td class="whitespace-nowrap px-6 py-4 font-medium">{{$item->id}}</td>
-                    <td class="whitespace-nowrap px-6 py-4">{{$item->tipo_id->nome ?? ""}}</td>
+                    <td class="whitespace-nowrap px-6 py-4">{{$item->tipo_cartao->nome ?? ""}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->nomeTitular}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->numeroCartao}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->dataValidade}}</td>
