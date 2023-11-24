@@ -42,4 +42,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function pedido(){ 
+        //relacionamento 1 - n
+        return $this->hasMany(Pedido::class);
+    }
+
+    /*public function cartao(){ 
+        //relacionamento 1 - n
+        return $this->hasMany(Cartao::class);
+    }*/
 }

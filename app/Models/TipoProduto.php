@@ -26,4 +26,9 @@ class TipoProduto extends Model
     protected $casts = [
         'id' => 'integer',
     ];
+
+    public function produto(){ 
+        //relacionamento 1 - n
+        return $this->hasMany(Produto::class);
+    }
 }

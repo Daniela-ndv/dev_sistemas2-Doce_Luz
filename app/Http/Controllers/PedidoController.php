@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\GraficoPedido;
 use App\Models\Pedido;
 use App\Models\Cartao;
 use App\Models\User;
@@ -149,6 +150,12 @@ class PedidoController extends Controller
         }
 
         return view('pedido.list')->with(['pedido'=> $pedido]);
+    }
+
+    public function chart(GraficoPedido $pedidos){
+        return view('pedido.chart')->with([
+            'pedidos'=>  $pedidos->build(),
+        ]);
     }
 
     public function report() {

@@ -33,6 +33,13 @@
                     Relatório
                     </button>
                 </a>
+                <a href="{{route('pedido.chart')}}">
+                    <button
+                    type="button"
+                    class="inline-block rounded border-2 border-slate-300 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:border-slate-300 hover:bg-neutral-300 hover:text-primary-600 focus:border-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:border-primary-700 active:text-primary-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10">
+                    Gráfico
+                    </button>
+                </a>
             </form>
         </div>
         <div class="w-1/6 flex grid content-center float-right">
