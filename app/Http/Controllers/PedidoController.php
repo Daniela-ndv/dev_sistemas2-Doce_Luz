@@ -9,6 +9,7 @@ use App\Models\FormaPagamentoTipoCartao;
 use App\Models\Status;
 use App\Models\ItemVenda;
 use Illuminate\Http\Request;
+use PDF;
 
 class PedidoController extends Controller
 {
@@ -66,6 +67,11 @@ class PedidoController extends Controller
         Pedido::create($dados);
 
         return redirect('pedido')->with('success', "Cadastrado com sucesso!");
+    }
+
+    public function show(Pedido $pedido)
+    {
+        //
     }
 
     /**
@@ -144,5 +150,16 @@ class PedidoController extends Controller
 
         return view('pedido.list')->with(['pedido'=> $pedido]);
     }
+
+    public function report() {
+        $pedidos = Pedido::all();
+        $data = [
+            'title'=>"Relatório - Listagem de Pedidos",
+            'pedidos'=> $pedidos,
+        ];
+        $pdf = PDF::loadView('pedido.report', $data);
+        return $pdf->download('listagem_pedidos.pdf');
+    }
+
 
 }
