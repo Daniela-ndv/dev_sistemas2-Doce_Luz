@@ -143,13 +143,13 @@ class PedidoController extends Controller
     public function search(Request $request)
     {
         if(!empty($request->valor)){
-            $pedido = Pedido::where($request->tipo, 'like', "%". $request->valor."%")->get();
+            $pedidos = Pedido::where($request->tipo, 'like', "%". $request->valor."%")->get();
         }
         else {
-            $pedido = Pedido::all();
+            $pedidos = Pedido::all();
         }
 
-        return view('pedido.list')->with(['pedido'=> $pedido]);
+        return view('pedido.list')->with(['pedidos'=> $pedidos]);
     }
 
     public function chart(GraficoPedido $pedidos){

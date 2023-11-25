@@ -9,9 +9,10 @@
                 @csrf
                 <p>Filtrar por: </p>
                 <select name="tipo" class="data-te-select-init rounded-md w-40">
-                    <option value="usuario_id">Usuário</option>
+                    <!--<option value="usuario_id">Usuário</option>
                     <option value="status_id">Status</option>
-                    <option value="cartao_id">Cartão</option>
+                    <option value="cartao_id">Cartão</option>-->
+                    <option value="observacao">Observação</option>
                 </select>
                 <input type="text" name="valor" class="data-te-select-init rounded-md w-80">
                 <button
