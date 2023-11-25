@@ -51,8 +51,8 @@ class Pedido extends Model
 
     public function cartao(){
         //relacionamento 1 - 1
-        return $this->belongsTo(Status::class,
-        'status_id','id');
+        return $this->belongsTo(Cartao::class,
+        'cartao_id','id');
     }
 
     public function item_venda(){ 

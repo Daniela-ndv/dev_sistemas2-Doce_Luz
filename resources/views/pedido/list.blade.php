@@ -77,7 +77,7 @@
                     <td class="whitespace-nowrap px-6 py-4 font-medium">{{$item->id}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->usuario->name ?? ""}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->formaPagamento->nome ?? ""}}</td>
-                    <td class="whitespace-nowrap px-6 py-4">{{$item->cartao->nome ?? ""}}</td>
+                    <td class="whitespace-nowrap px-6 py-4">{{$item->cartao->numeroCartao ?? ""}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->status->nome ?? ""}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->observacao}}</td>
                     <td class="whitespace-nowrap px-6 py-4">

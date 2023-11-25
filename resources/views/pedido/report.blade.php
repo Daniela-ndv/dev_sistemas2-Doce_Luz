@@ -28,7 +28,7 @@
                     <td scope="row">{{$data->id}}</td>
                     <td>{{$data->usuario->name ?? ""}}</td>
                     <td>{{$data->formaPagamento->nome ?? ""}}</td>
-                    <td>{{$data->cartao->nome ?? ""}}</td>
+                    <td>{{$data->cartao->numeroCartao ?? ""}}</td>
                     <td>{{$data->status->nome ?? ""}}</td>
                     <td>{{$data->observacao}}</td>
                 </tr>
