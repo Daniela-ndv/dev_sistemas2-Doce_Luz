@@ -108,7 +108,7 @@ class CartaoController extends Controller
             ['id'=>$request->id],
             $dados);
 
-        return redirect('cartao.edit')->with('success', "Atualizado com sucesso!");
+        return redirect('cartao')->with('success', "Atualizado com sucesso!");
     }
 
     /**
