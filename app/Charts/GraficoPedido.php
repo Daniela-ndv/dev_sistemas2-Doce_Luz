@@ -17,25 +17,23 @@ class GraficoPedido
 
     public function build(): \ArielMejiaDev\LarapexCharts\HorizontalBar
     {
-        $status = Status::all();
+        $status = Status::with('pedidos')->get();
+        //dd($status);
         $i = 0;
-        foreach ($pedidos as $item) {
-            $qtdTotalIngressosVendidos = 0;
-            foreach ($item->pedido as $itemPedido) {
-                $qtdIngressosVendidosPorPedido = $itemPedido->quantidade;
-                $qtdTotalIngressosVendidos += $qtdIngressosVendidosPorPedido;
-            }
-            $eventoArray[$i] = $item->nome;
-            $qtdIngressos[$i] = $qtdTotalIngressosVendidos;
+        foreach ($status as $item) {
+            $qtdPedidos = 0;
+            $qtdPedidos = count($item->pedidos);
+            $statusArray[$i] = $item->nome;
+            $qtdPedidosArray[$i] = $qtdPedidos;
             $i++;
         }
 
         return $this->chart->horizontalBarChart()
-            ->setTitle('Quantidade de ingressos vendidos por evento.')
-            //->setSubtitle('Wins during season 2021.')
+            ->setTitle('Quantidade de pedidos por status.')
+            ->setSubtitle('Quantidade de pedidos em cada parte do processo.')
             ->setColors(['#be123c']) //['#FFC107', '#D32F2F']
-            ->addData('Ingressos vendidos', $qtdIngressos) //quantidade de pedidos //$qtdIngressos->all()
+            ->addData('Quantidade de pedidos', $qtdPedidosArray) //quantidade de pedidos //$qtdIngressos->all()
             //->addData('Boston', [7, 3, 8, 2, 6, 4])
-            ->setXAxis($eventoArray); //eventos
+            ->setXAxis($statusArray); //eventos
     }
 }

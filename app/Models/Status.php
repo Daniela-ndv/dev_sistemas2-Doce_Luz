@@ -27,7 +27,7 @@ class Status extends Model
         'id' => 'integer',
     ];
 
-    public function pedido(){ 
+    public function pedidos(){ 
         //relacionamento 1 - n
         return $this->hasMany(Pedido::class);
     }
