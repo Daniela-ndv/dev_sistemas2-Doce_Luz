@@ -66,6 +66,7 @@ class CartaoController extends Controller
     public function edit($id)
     {
         $cartao = Cartao::find($id);
+        //dd($cartao);
 
         $pagamento = FormaPagamentoTipoCartao::orderBy('nome')->get();
 

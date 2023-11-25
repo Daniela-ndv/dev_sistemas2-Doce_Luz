@@ -17,8 +17,15 @@ Route::get('/', function () {
 });
 
 //ROTAS CARTÃO
-Route::resource('/cartao', CartaoController::class);
+Route::get('/cartao', [CartaoController::class, 'index'])->name('cartao.index'); 
+Route::get('/cartao/create', [CartaoController::class, 'create'])->name('cartao.create');
+Route::post('/cartao', [CartaoController::class, 'store'])->name('cartao.store');
+Route::get('/cartao/edit/{id}', [CartaoController::class, 'edit'])->name('cartao.edit');
+Route::put('/cartao/update/{id}', [CartaoController::class, 'update'])->name('cartao.update');
+Route::get('/cartao/destroy/{id}', [CartaoController::class, 'destroy'])->name('cartao.destroy');
 Route::post('/cartao/search', [CartaoController::class, 'search'])->name('cartao.search');
+Route::get('/cartao/chart/', [CartaoController::class, 'chart'])->name('cartao.chart');
+Route::get('/cartao/report/', [CartaoController::class, 'report'])->name('cartao.report');
 
 //ROTAS PEDIDO
 Route::get('/pedido', [PedidoController::class, 'index'])->name('pedido.index'); 
