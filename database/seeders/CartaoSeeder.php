@@ -20,7 +20,7 @@ class CartaoSeeder extends Seeder
             DB::table('cartaos')->insert(
                 [
                     'nomeTitular' => $fake->name,
-                    'tipo_id' => $fake->numberBetween($min = 1, $max = 5),
+                    'tipo_id' => $fake->numberBetween($min = 1, $max = 2),
                     'numeroCartao' => $fake->randomNumber($nbDigits = NULL, $strict = false),
                     'dataValidade' => $fake->date($format = 'Y-m-d', $min = 'now'),
                     'codigoSeguranca' => $fake->randomNumber($nbDigits = NULL, $strict = false),

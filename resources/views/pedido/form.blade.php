@@ -70,7 +70,6 @@
                                 </option>
                             @endforeach
                         </select>
-                    </label>
                 </div>
             </div><br><br>
 

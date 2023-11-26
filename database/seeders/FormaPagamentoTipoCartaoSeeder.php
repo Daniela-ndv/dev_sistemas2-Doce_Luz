@@ -17,10 +17,10 @@ class FormaPagamentoTipoCartaoSeeder extends Seeder
     {
         //FormaPagamentoTipoCartao::factory()->count(5)->create();
         $fake = Faker::create("pt_BR");
-        foreach (\range(1, 5) as $index) {
+        foreach (\range(1, 2) as $index) {
             DB::table('forma_pagamento_tipo_cartaos')->insert(
                 [
-                    'nome' => $fake->word,
+                    'nome'=>$fake->randomElement($array = array ('Crédito','Débito')),
                 ]
             );
         }

@@ -40,6 +40,7 @@
     <div class="md:container md:mx-auto px-8">
         @yield('content')
     </div>
+
     @include('base.footer')
 </body>
 </html>

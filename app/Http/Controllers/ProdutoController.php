@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produto;
-use App\Models\TipoProduto; //FormaPagamentoTipoCartao;
+use App\Models\TipoProduto; 
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
@@ -32,7 +32,6 @@ class ProdutoController extends Controller
             'codigo'=>'required|max:40',
             'valorCusto'=>'required|max:6',
             'valorVenda'=>'required|max:6',
-            'codigoSeguranca'=>'required|max:60',
         ],[
             'nome.required'=>"O :attribute é obrigatório!",
             'nome.max'=>" Só é permitido 100 caracteres em :attribute !",
@@ -84,7 +83,6 @@ class ProdutoController extends Controller
             'codigo'=>'required|max:40',
             'valorCusto'=>'required|max:6',
             'valorVenda'=>'required|max:6',
-            'codigoSeguranca'=>'required|max:60',
         ],[
             'nome.required'=>"O :attribute é obrigatório!",
             'nome.max'=>" Só é permitido 100 caracteres em :attribute !",
