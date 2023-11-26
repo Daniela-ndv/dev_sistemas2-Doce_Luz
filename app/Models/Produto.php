@@ -37,7 +37,7 @@ class Produto extends Model
 
     public function tipo_produto(){
         //relacionamento 1 - 1
-        return $this->belongsTo(FormaPagamentoTipoCartao::class,
+        return $this->belongsTo(TipoProduto::class,
         'tipo_id','id');
     }
 

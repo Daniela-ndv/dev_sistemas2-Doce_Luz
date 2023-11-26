@@ -26,7 +26,7 @@ class ProdutoSeeder extends Seeder
                     'valorCusto' => $fake->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 2000),
                     'valorVenda' => $fake->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 2000),
                     'descricao' => $fake->sentence($nbWords = 5, $variableNbWords = true),
-                    'imagem'=> $fake->image( $dir = 'public/storage/imagem/produto',640,480, null, true),                ]
+                    'imagem'=> $fake->image( $dir = 'storage/app/public/imagem/produto',640,480, null, true),                ]
             );
         }
     }

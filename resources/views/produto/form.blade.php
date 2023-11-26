@@ -31,22 +31,27 @@
                 @endif
 
                 <input type="hidden" name="id"
-                    value="@if (!empty($produto->id)) {{ $produto->id }}@elseif(!empty(old('id'))){{ old('id') }}@else{{ '' }} @endif">
+                    value="@if(!empty($produto->id)){{ $produto->id }}@elseif(!empty(old('id'))){{ old('id')}}@else{{ '' }}@endif">
 
                 <label class="block">
                     <span class="text-gray-700">Nome do produto</span>
                     <input type="text" name="nome" placeholder=" "
                         class="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
-                        value="@if (!empty($produto->nome)) {{ $produto->nome }}@elseif(!empty(old('nome'))){{ old('nome') }}@else{{ '' }} @endif">
+                        value="@if(!empty($produto->nome)){{$produto->nome}}@elseif(!empty(old('nome'))){{ old('nome') }}@else{{ '' }}@endif">
                 </label><br><br>
 
                 <div class="flex">
                     <div class="w-1/2 mr-2">
-                        <label class="block">
-                            <span class="text-gray-700">Tipo ID</span>
-                            <input type="text" name="tipo_id" placeholder=" "
-                                class="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
-                                value="@if (!empty($produto->tipo_id)) {{ $produto->tipo_id }}@elseif(!empty(old('tipo_id'))){{ old('tipo_id') }}@else{{ '' }} @endif">
+                    <label class="block">
+                            <span>Tipo ID</span>
+                            <select name="tipo_id" id="" class="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black">
+                                @foreach ($tipo_id as $item)
+                                    <option value="{{ $item->id }}"
+                                        @if(!empty($produto->id)){{ ( $item->id == $produto->tipo_id) ? 'selected' : '' }}
+                                        @else{{ '' }}@endif >{{$item->nome}}
+                                    </option>
+                                @endforeach
+                            </select>
                         </label><br><br>
                     </div>
                     <div class="w-1/2 mr-2">

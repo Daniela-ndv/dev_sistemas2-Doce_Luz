@@ -2,88 +2,133 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProdutoStoreRequest;
-use App\Http\Requests\ProdutoUpdateRequest;
 use App\Models\Produto;
-use App\Models\TipoProduto;
-use Illuminate\Http\RedirectResponse;
+use App\Models\TipoProduto; //FormaPagamentoTipoCartao;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 
 class ProdutoController extends Controller
 {
-    public function index(Request $request): View
+
+    public function index()
     {
         $produtos = Produto::all();
-
-        return view('produto.list', compact('produtos'));
+        return view('produto.list')->with(['produtos'=> $produtos]);
     }
 
-    public function create(Request $request): View
+    public function create()
     {
-        $tipo = TipoProduto::orderBy('nome')->get();
+        $tipo_id = TipoProduto::orderBy('nome')->get();
 
-        return view('produto.form')->with(['tipo'=>$tipo]);
+        return view('produto.form')->with(['tipo_id'=> $tipo_id]);
     }
 
-    public function store(ProdutoStoreRequest $request): RedirectResponse
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
     {
-        $produto = Produto::create($request->validated());
+        /*$request->validate([
+            'tipo_id'=>'required|max:10',
+            'nomeTitular'=>'required|max:100',
+            'numeroCartao'=>'required|max:10',
+            'dataValidade'=>'required|max:10',
+            'codigoSeguranca'=>'required|max:60',
+        ],[
+            'tipo_id.required'=>"O :attribute é obrigatório!",
+            'nomeTitular.required'=>"O :attribute é obrigatório!",
+            'nomeTitular.max'=>" Só é permitido 100 caracteres em :attribute !",
+            'numeroCartao.required'=>"O :attribute é obrigatório!",
+            'numeroCartao.max'=>" Só é permitido 10 caracteres em :attribute !",
+            'codigoSeguranca.required'=>"O :attribute é obrigatório!",
+            'codigoSeguranca.max'=>" Só é permitido 60 caracteres em :attribute !",
+        ]); */
+ 
+        $dados = ['nome'=> $request->nome,
+            'codigo'=> $request->codigo,
+            'valorCusto'=> $request->valorCusto,
+            'valorVenda'=> $request->valorVenda,
+            'descricao'=>$request->descricao,
+            'imagem'=>$request->imagem,
+            'tipo_id'=>$request->tipo_id,
+        ];
 
-        $request->session()->flash('produto.id', $produto->id);
+        Produto::create($dados);
 
-        return redirect()->route('produto.index');
+        return redirect('produto')->with('success', "Cadastrado com sucesso!");
     }
 
-    public function show(Request $request, Produto $produto): View
+    public function show(Produto $produto)
     {
-        return view('produto.show', compact('produto'));
+        //
     }
 
-    public function edit(Request $request, Produto $produto): View
+    public function edit($id)
     {
-        $produto = Produto::find($request->id);
 
-        $tipo = TipoProduto::orderBy('nome')->get();
+        $produto = Produto::find($id);
+        //dd($produto);
 
-        return view('cartao.form')->with([
+        $tipo_id = TipoProduto::orderBy('nome')->get();
+
+        return view('produto.form')->with([
         'produto'=> $produto,
-        'tipo'=> $tipo]);
-    }
-
-    public function update(ProdutoUpdateRequest $request, Produto $produto): RedirectResponse
-    {$request->validated();
-
-    Produto::UpdateOrCreate(
-        ['id'=>$request->id],
-        $produto);
-
-    return redirect('produto')->with('success', "Atualizado com sucesso!");
+        'tipo_id'=> $tipo_id]);
 
     }
 
-    public function destroy(Request $request, Produto $produto): RedirectResponse
+    public function update(Request $request, Produto $produto)
     {
-        $produto = Produto::findOrFail($request->id);
+        /*$request->validate([
+            'tipo_id'=>'required|max:10',
+            'nomeTitular'=>'required|max:100',
+            'numeroCartao'=>'required|max:10',
+            'dataValidade'=>'required|max:10',
+            'codigoSeguranca'=>'required|max:60',
+        ],[
+            'tipo_id.required'=>"O :attribute é obrigatório!",
+            'nomeTitular.required'=>"O :attribute é obrigatório!",
+            'nomeTitular.max'=>" Só é permitido 100 caracteres em :attribute !",
+            'numeroCartao.required'=>"O :attribute é obrigatório!",
+            'numeroCartao.max'=>" Só é permitido 10 caracteres em :attribute !",
+            'codigoSeguranca.required'=>"O :attribute é obrigatório!",
+            'codigoSeguranca.max'=>" Só é permitido 60 caracteres em :attribute !",
+        ]); */
+
+        $dados = ['nome'=> $request->nome,
+            'codigo'=> $request->codigo,
+            'valorCusto'=> $request->valorCusto,
+            'valorVenda'=> $request->valorVenda,
+            'descricao'=>$request->descricao,
+            'imagem'=>$request->imagem,
+            'tipo_id'=>$request->tipo_id,
+        ];
+
+        Produto::UpdateOrCreate(
+            ['id'=>$request->id],
+            $dados);
+
+        return redirect('produto')->with('success', "Atualizado com sucesso!");
+    }
+
+    public function destroy($id)
+    {
+        $produto = Produto::findOrFail($id);
 
         $produto->delete();
 
         return redirect('produto')->with('success', "Deletado com sucesso!");
-
     }
 
     public function search(Request $request)
     {
-        if (!empty($request->valor)) {
-            $produtos = Produto::where(
-                $request->tipo,
-                'like',
-                "%" . $request->valor . "%"
-            )->get();
-        } else {
+        if(!empty($request->valor)){
+            $produtos = Produto::where($request->tipo, 'like', "%". $request->valor."%")->get();
+        }
+        else {
             $produtos = Produto::all();
         }
 
-        return view('produto.list')->with(['produtos' => $produtos]);
+        return view('produto.list')->with(['produtos'=> $produtos]);
     }
+
 }

@@ -1,24 +1,26 @@
-<!doctype html>
-<html lang="en">
+@extends('base.app')
+@section("titulo", 'Gráfico')
+@section('content')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chart Sample</title>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-</head>
-
-<body class="h-screen bg-gray-100">
     <div class="container px-4 mx-auto">
         <div class="p-6 m-20 bg-white rounded shadow">
             <!-- HTML do gráfico -->
             {!! $pedidos->container() !!}
         </div>
-    </div>
+        
+        <a href="{{route('pedido.index')}}">
+                <button
+                    type="button"
+                    class="inline-block rounded border-2 border-slate-300 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:border-slate-300 hover:bg-neutral-300 hover:text-primary-600 focus:border-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:border-primary-700 active:text-primary-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10">
+                    Retornar à listagem de pedidos
+                </button>
+         </a>
+      
+    </div>   
+        
     <!-- faz o import da biblioteca ApexChart -->
     <script src="{{ $pedidos->cdn() }}"></script>
     <!-- adiciona os Scripts do JavaScript do ApexChart -->
     {{ $pedidos->script() }}
-</body>
-</html>
+
+@endsection

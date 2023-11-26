@@ -4,17 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartaoController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProdutoController;
-
 use App\Http\Controllers\FormaPagamentoTipoCartaoController;
 use App\Http\Controllers\ItemVendaController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TipoProdutoController;
+use App\Http\Controllers\IndexController;
 use App\Models\FormaPagamentoTipoCartao;
 
-
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [IndexController::class, 'index'])->name('index');
 
 //ROTAS CARTÃO
 Route::get('/cartao', [CartaoController::class, 'index'])->name('cartao.index'); 
@@ -38,8 +35,13 @@ Route::post('/pedido/search', [PedidoController::class, 'search'])->name('pedido
 Route::get('/pedido/chart/', [PedidoController::class, 'chart'])->name('pedido.chart');
 Route::get('/pedido/report/', [PedidoController::class, 'report'])->name('pedido.report');
 
-// ROTAS PRODUTO
-Route::resource('/produto', ProdutoController::class);
+//ROTAS PRODUTO
+Route::get('/produto', [ProdutoController::class, 'index'])->name('produto.index'); 
+Route::get('/produto/create', [ProdutoController::class, 'create'])->name('produto.create');
+Route::post('/produto', [ProdutoController::class, 'store'])->name('produto.store');
+Route::get('/produto/edit/{id}', [ProdutoController::class, 'edit'])->name('produto.edit');
+Route::put('/produto/update/{id}', [ProdutoController::class, 'update'])->name('produto.update');
+Route::get('/produto/destroy/{id}', [ProdutoController::class, 'destroy'])->name('produto.destroy');
 Route::post('/produto/search', [ProdutoController::class, 'search'])->name('produto.search');
 
 

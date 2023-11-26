@@ -62,12 +62,12 @@
                                     class="border-b transition duration-300 ease-in-out hover:bg-neutral-200 dark:border-neutral-500 dark:hover:bg-neutral-600">
                                     <td class="whitespace-nowrap px-6 py-4 font-medium">{{ $item->id }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item->nome }}</td>
-                                    <td class="whitespace-nowrap px-6 py-4">{{ $item->tipo_id ?? '' }}</td>
-                                    <td class="whitespace-nowrap px-6 py-4">{{ $item->codigo ?? '' }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $item->tipo_produto->nome ?? "" }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $item->codigo }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item->valorCusto }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item->valorVenda }}</td>
-                                    <td class="whitespace-nowrap px-6 py-4">{{ $item->descricao ?? '' }}</td>
-                                    <td class="whitespace-nowrap px-6 py-4">{{ $item->imagem ?? '' }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $item->descricao }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $item->imagem }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">
                                         <a href="{{ route('produto.edit', $item->id) }}">
                                             <button type="button"
