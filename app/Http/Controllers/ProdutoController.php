@@ -27,21 +27,22 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        /*$request->validate([
-            'tipo_id'=>'required|max:10',
-            'nomeTitular'=>'required|max:100',
-            'numeroCartao'=>'required|max:10',
-            'dataValidade'=>'required|max:10',
+        $request->validate([
+            'nome'=>'required|max:100',
+            'codigo'=>'required|max:40',
+            'valorCusto'=>'required|max:6',
+            'valorVenda'=>'required|max:6',
             'codigoSeguranca'=>'required|max:60',
         ],[
-            'tipo_id.required'=>"O :attribute é obrigatório!",
-            'nomeTitular.required'=>"O :attribute é obrigatório!",
-            'nomeTitular.max'=>" Só é permitido 100 caracteres em :attribute !",
-            'numeroCartao.required'=>"O :attribute é obrigatório!",
-            'numeroCartao.max'=>" Só é permitido 10 caracteres em :attribute !",
-            'codigoSeguranca.required'=>"O :attribute é obrigatório!",
-            'codigoSeguranca.max'=>" Só é permitido 60 caracteres em :attribute !",
-        ]); */
+            'nome.required'=>"O :attribute é obrigatório!",
+            'nome.max'=>" Só é permitido 100 caracteres em :attribute !",
+            'codigo.required'=>"O :attribute é obrigatório!",
+            'codigo.max'=>" Só é permitido 40 caracteres em :attribute !",
+            'descricao.required'=>"O :attribute é obrigatório!",
+            'descricao.max'=>" Só é permitido 200 caracteres em :attribute !",
+            'imagem.required'=>"O :attribute é obrigatório!",
+            'imagem.max'=>" Só é permitido 200 caracteres em :attribute !",
+        ]); 
  
         $dados = ['nome'=> $request->nome,
             'codigo'=> $request->codigo,
@@ -78,21 +79,22 @@ class ProdutoController extends Controller
 
     public function update(Request $request, Produto $produto)
     {
-        /*$request->validate([
-            'tipo_id'=>'required|max:10',
-            'nomeTitular'=>'required|max:100',
-            'numeroCartao'=>'required|max:10',
-            'dataValidade'=>'required|max:10',
+        $request->validate([
+            'nome'=>'required|max:100',
+            'codigo'=>'required|max:40',
+            'valorCusto'=>'required|max:6',
+            'valorVenda'=>'required|max:6',
             'codigoSeguranca'=>'required|max:60',
         ],[
-            'tipo_id.required'=>"O :attribute é obrigatório!",
-            'nomeTitular.required'=>"O :attribute é obrigatório!",
-            'nomeTitular.max'=>" Só é permitido 100 caracteres em :attribute !",
-            'numeroCartao.required'=>"O :attribute é obrigatório!",
-            'numeroCartao.max'=>" Só é permitido 10 caracteres em :attribute !",
-            'codigoSeguranca.required'=>"O :attribute é obrigatório!",
-            'codigoSeguranca.max'=>" Só é permitido 60 caracteres em :attribute !",
-        ]); */
+            'nome.required'=>"O :attribute é obrigatório!",
+            'nome.max'=>" Só é permitido 100 caracteres em :attribute !",
+            'codigo.required'=>"O :attribute é obrigatório!",
+            'codigo.max'=>" Só é permitido 40 caracteres em :attribute !",
+            'descricao.required'=>"O :attribute é obrigatório!",
+            'descricao.max'=>" Só é permitido 200 caracteres em :attribute !",
+            'imagem.required'=>"O :attribute é obrigatório!",
+            'imagem.max'=>" Só é permitido 200 caracteres em :attribute !",
+        ]); 
 
         $dados = ['nome'=> $request->nome,
             'codigo'=> $request->codigo,
