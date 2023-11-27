@@ -37,6 +37,24 @@
                 value="@if(!empty($cartao->nomeTitular)){{$cartao->nomeTitular}}@elseif(!empty(old('nomeTitular'))){{old('nomeTitular')}}@else{{''}}@endif">
             </label><br><br>
 
+            @php
+                $nome_imagem = !empty($cartao->imagem) ? $cartao->imagem : 'sem_imagem.jpg';
+            @endphp
+            <div>
+                <img class="h-40 w-40 object-cover rounded-full" src="/storage/{{ $nome_imagem }}" width="300px"
+                    alt="imagem">
+                <br>
+                <input
+                    class="block w-full text-sm text-slate-500
+                            file:mr-4 file:py-2 file:px-4
+                            file:rounded-full file:border-0
+                            file:text-sm file:font-semibold
+                            file:bg-green-50 file:text-green-700
+                            hover:file:bg-green-100"
+                    type="file" name="imagem"><br>
+            </div>
+            <br>
+
             <div class="flex">
                 <div class="w-1/2 mr-2">
                     <label class="block">

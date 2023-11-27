@@ -16,7 +16,7 @@
         } else{
             $route = route('pedido.store');
         }
-    @endphp
+    @endphp 
 
     <div class="mx-auto py-12 divide-y md:max-w-4xl">
         <div class="py-12">

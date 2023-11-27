@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produto;
-use App\Models\TipoProduto; 
+use App\Models\TipoProduto;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
@@ -39,10 +39,8 @@ class ProdutoController extends Controller
             'codigo.max'=>" Só é permitido 40 caracteres em :attribute !",
             'descricao.required'=>"O :attribute é obrigatório!",
             'descricao.max'=>" Só é permitido 200 caracteres em :attribute !",
-            'imagem.required'=>"O :attribute é obrigatório!",
-            'imagem.max'=>" Só é permitido 200 caracteres em :attribute !",
-        ]); 
- 
+        ]);
+
         $dados = ['nome'=> $request->nome,
             'codigo'=> $request->codigo,
             'valorCusto'=> $request->valorCusto,
@@ -51,6 +49,19 @@ class ProdutoController extends Controller
             'imagem'=>$request->imagem,
             'tipo_id'=>$request->tipo_id,
         ];
+
+        $imagem = $request->file('imagem');
+        //verifica se existe imagem no formulário
+        if($imagem){
+            $nome_arquivo =
+            date('YmdHis').'.'.$imagem->getClientOriginalExtension();
+
+            $diretorio = "imagem/cartao/";
+            //salva imagem em uma pasta do sistema
+            $imagem->storeAs($diretorio,$nome_arquivo,'public');
+
+            $dados['imagem'] = $diretorio.$nome_arquivo;
+        }
 
         Produto::create($dados);
 
@@ -92,7 +103,7 @@ class ProdutoController extends Controller
             'descricao.max'=>" Só é permitido 200 caracteres em :attribute !",
             'imagem.required'=>"O :attribute é obrigatório!",
             'imagem.max'=>" Só é permitido 200 caracteres em :attribute !",
-        ]); 
+        ]);
 
         $dados = ['nome'=> $request->nome,
             'codigo'=> $request->codigo,
@@ -102,6 +113,19 @@ class ProdutoController extends Controller
             'imagem'=>$request->imagem,
             'tipo_id'=>$request->tipo_id,
         ];
+
+        $imagem = $request->file('imagem');
+        //verifica se existe imagem no formulário
+        if($imagem){
+            $nome_arquivo =
+            date('YmdHis').'.'.$imagem->getClientOriginalExtension();
+
+            $diretorio = "imagem/cartao/";
+            //salva imagem em uma pasta do sistema
+            $imagem->storeAs($diretorio,$nome_arquivo,'public');
+
+            $dados['imagem'] = $diretorio.$nome_arquivo;
+        }
 
         Produto::UpdateOrCreate(
             ['id'=>$request->id],

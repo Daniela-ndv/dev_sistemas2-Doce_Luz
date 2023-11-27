@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('numeroCartao');
             $table->date('dataValidade');
             $table->string('codigoSeguranca', 60);
+            $table->string('imagem', 200);
             $table->timestamps();
         });
     }

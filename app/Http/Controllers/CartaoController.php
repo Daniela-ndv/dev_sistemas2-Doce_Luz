@@ -46,6 +46,7 @@ class CartaoController extends Controller
             'numeroCartao.max'=>" Só é permitido 10 caracteres em :attribute !",
             'codigoSeguranca.required'=>"O :attribute é obrigatório!",
             'codigoSeguranca.max'=>" Só é permitido 60 caracteres em :attribute !",
+            'codigoSeguranca.max'=>" Só é permitido 60 caracteres em :attribute !",
         ]);
 
         $dados = ['tipo_id'=> $request->tipo_id,
@@ -54,6 +55,19 @@ class CartaoController extends Controller
             'dataValidade'=> $request->dataValidade,
             'codigoSeguranca'=>$request->codigoSeguranca,
         ];
+
+        $imagem = $request->file('imagem');
+        //verifica se existe imagem no formulário
+        if($imagem){
+            $nome_arquivo =
+            date('YmdHis').'.'.$imagem->getClientOriginalExtension();
+
+            $diretorio = "imagem/cartao/";
+            //salva imagem em uma pasta do sistema
+            $imagem->storeAs($diretorio,$nome_arquivo,'public');
+
+            $dados['imagem'] = $diretorio.$nome_arquivo;
+        }
 
         Cartao::create($dados);
 
@@ -103,6 +117,19 @@ class CartaoController extends Controller
             'dataValidade'=> $request->dataValidade,
             'codigoSeguranca'=>$request->codigoSeguranca,
         ];
+
+        $imagem = $request->file('imagem');
+        //verifica se existe imagem no formulário
+        if($imagem){
+            $nome_arquivo =
+            date('YmdHis').'.'.$imagem->getClientOriginalExtension();
+
+            $diretorio = "imagem/cartao/";
+            //salva imagem em uma pasta do sistema
+            $imagem->storeAs($diretorio,$nome_arquivo,'public');
+
+            $dados['imagem'] = $diretorio.$nome_arquivo;
+        }
 
         Cartao::UpdateOrCreate(
             ['id'=>$request->id],

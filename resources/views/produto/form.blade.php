@@ -87,10 +87,23 @@
                         value="@if (!empty($produto->descricao)) {{ $produto->descricao }}@elseif(!empty(old('descricao'))){{ old('descricao') }}@else{{ '' }} @endif">
                 </label><br><br>
 
-                <label class="block">
-                    <span class="text-gray-700">Imagem</span>
-                    <input type="file" name="imagem" accept="image/*">
-                </label><br><br>
+                @php
+                $nome_imagem = !empty($produto->imagem) ? $produto->imagem : 'sem_imagem.jpg';
+                @endphp
+                <div>
+                    <img class="h-40 w-40 object-cover rounded-full" src="/storage/{{ $nome_imagem }}" width="300px"
+                        alt="imagem">
+                    <br>
+                    <input
+                        class="block w-full text-sm text-slate-500
+                                file:mr-4 file:py-2 file:px-4
+                                file:rounded-full file:border-0
+                                file:text-sm file:font-semibold
+                                file:bg-green-50 file:text-green-700
+                                hover:file:bg-green-100"
+                        type="file" name="imagem"><br>
+                </div>
+                <br>
 
                 <button class="rounded-2xl bg-blue-300 px-4 py-2 w-32 font-bold hover:bg-blue-400"
                     type="submit">Salvar</button>

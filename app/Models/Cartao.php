@@ -20,6 +20,7 @@ class Cartao extends Model
         'numeroCartao',
         'dataValidade',
         'codigoSeguranca',
+        'imagem',
     ];
 
     /**
@@ -44,7 +45,7 @@ class Cartao extends Model
         'usuario_id','id');
     }*/
 
-    public function pedido(){ 
+    public function pedido(){
         //relacionamento 1 - n
         return $this->hasMany(Pedido::class);
     }

@@ -60,7 +60,7 @@
 
 <body>
     @include('base.menu')
-    <div class="md:container md:mx-auto px-8">
+    <div class="md:container md:mx-auto bg-white">
         @yield('content')
     </div>
     @include('base.footer')

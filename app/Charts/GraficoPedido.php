@@ -17,7 +17,7 @@ class GraficoPedido
 
     public function build(): \ArielMejiaDev\LarapexCharts\HorizontalBar
     {
-        $status = Status::with('pedidos')->get();
+        $status = Status::with('pedidos')->get(); 
         //dd($status);
         $i = 0;
         foreach ($status as $item) {

@@ -56,8 +56,11 @@
                                 <th scope="col" class="px-6 py-4">Ações</th>
                             </tr>
                         </thead>
+                        <tbody>
                         @foreach ($produtos as $item)
-                            <tbody>
+                        @php
+                            $nome_imagem = !empty($item->imagem) ? $item->imagem : 'sem_imagem.jpg';
+                        @endphp
                                 <tr
                                     class="border-b transition duration-300 ease-in-out hover:bg-neutral-200 dark:border-neutral-500 dark:hover:bg-neutral-600">
                                     <td class="whitespace-nowrap px-6 py-4 font-medium">{{ $item->id }}</td>
@@ -67,7 +70,8 @@
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item->valorCusto }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item->valorVenda }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item->descricao }}</td>
-                                    <td class="whitespace-nowrap px-6 py-4">{{ $item->imagem }}</td>
+                                    <td class="h-32 w-32 object-cover rounded-full"><img src="/storage/{{ $nome_imagem }}"
+                                        width="100px" alt="imagem"></td>
                                     <td class="whitespace-nowrap px-6 py-4">
                                         <a href="{{ route('produto.edit', $item->id) }}">
                                             <button type="button"
@@ -83,8 +87,8 @@
                                         </a>
                                     </td>
                                 </tr>
-                            </tbody>
-                        @endforeach
+                            @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>
