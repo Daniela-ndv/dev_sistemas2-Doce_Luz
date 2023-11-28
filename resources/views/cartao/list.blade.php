@@ -65,8 +65,8 @@
                     <td class="whitespace-nowrap px-6 py-4 font-medium">{{$item->id}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->tipo_cartao->nome ?? ""}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->nomeTitular}}</td>
-                    <td class="h-32 w-32 object-cover rounded-full"><img src="/storage/{{ $nome_imagem }}"
-                        width="100px" alt="imagem"></td>
+                    <td class="whitespace-nowrap h-32 w-32 object-cover"><img src="/storage/{{ $nome_imagem }}"
+                        width="120px" alt="imagem"></td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->numeroCartao}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->dataValidade}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->codigoSeguranca}}</td>

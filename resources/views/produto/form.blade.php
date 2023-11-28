@@ -91,13 +91,13 @@
                 $nome_imagem = !empty($produto->imagem) ? $produto->imagem : 'sem_imagem.jpg';
                 @endphp
                 <div>
-                    <img class="h-40 w-40 object-cover rounded-full" src="/storage/{{ $nome_imagem }}" width="300px"
+                    <img class="h-40 w-40 object-cover" src="/storage/{{ $nome_imagem }}" width="300px"
                         alt="imagem">
                     <br>
                     <input
                         class="block w-full text-sm text-slate-500
                                 file:mr-4 file:py-2 file:px-4
-                                file:rounded-full file:border-0
+                                file:border-0
                                 file:text-sm file:font-semibold
                                 file:bg-green-50 file:text-green-700
                                 hover:file:bg-green-100"

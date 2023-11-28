@@ -70,8 +70,8 @@
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item->valorCusto }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item->valorVenda }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item->descricao }}</td>
-                                    <td class="h-32 w-32 object-cover rounded-full"><img src="/storage/{{ $nome_imagem }}"
-                                        width="100px" alt="imagem"></td>
+                                    <td class="whitespace-nowrap h-32 w-32 object-cover"><img src="/storage/{{ $nome_imagem }}"
+                                        width="120px" alt="imagem"></td>
                                     <td class="whitespace-nowrap px-6 py-4">
                                         <a href="{{ route('produto.edit', $item->id) }}">
                                             <button type="button"
