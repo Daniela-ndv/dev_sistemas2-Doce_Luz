@@ -16,7 +16,7 @@
         } else{
             $route = route('pedido.store');
         }
-    @endphp 
+    @endphp
 
     <div class="mx-auto py-12 divide-y md:max-w-4xl">
         <div class="py-12">
@@ -48,7 +48,7 @@
 
             <div class="flex">
                 <div class="w-1/2 mr-2">
-                    <label class="block">
+                    <label class="block"> 
                         <span>N° cartão</span>
                         <select name="cartao_id" id="" class="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black">
                             @foreach ($cartao as $item)

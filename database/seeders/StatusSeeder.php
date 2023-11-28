@@ -20,7 +20,8 @@ class StatusSeeder extends Seeder
         foreach (\range(1, 5) as $index) {
             DB::table('statuses')->insert(
                 [
-                    'nome' => $fake->word,
+                    'nome'=>$fake->randomElement($array = array (
+                        'Confirmado','Em processamento','A caminho','Entregue')),
                 ]
             );
         }

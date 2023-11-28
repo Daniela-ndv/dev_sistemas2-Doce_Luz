@@ -20,7 +20,7 @@ class FormaPagamentoTipoCartaoSeeder extends Seeder
         foreach (\range(1, 2) as $index) {
             DB::table('forma_pagamento_tipo_cartaos')->insert(
                 [
-                    'nome'=>$fake->randomElement($array = array ('Crédito','Débito')),
+                    'nome'=>$fake->randomElement($array = array ('Crédito','Débito')), 
                 ]
             );
         }

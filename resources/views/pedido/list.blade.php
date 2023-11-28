@@ -50,7 +50,7 @@
 
         <div class="flex grid content-left float-right"><br>
             <a href="{{route('pedido.create')}}">
-                <button
+                <button 
                 class="inline-block rounded border-2 border-slate-800 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:border-slate-400 hover:bg-neutral-300 hover:text-primary-600 focus:border-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:border-primary-700 active:text-primary-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10">
                 Cadastrar Novo
                 </button>
