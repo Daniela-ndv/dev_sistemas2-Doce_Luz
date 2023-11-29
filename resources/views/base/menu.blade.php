@@ -83,14 +83,6 @@
             <div class="absolute right-0 z-10 mt-2 w-56 rounded-md bg-white shadow-lg focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" >
               <div class="py-1" role="none">
 
-                <a href="{{ url('/dashboard') }}" class="block hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" >
-                    <button
-                    type="button"
-                    role="menuitem"
-                    class="text-gray-700 block px-4 py-2 text-sm" >
-                    {{ Auth::user()->name }}</button>
-                </a>
-
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <a href="{{ route('logout') }}" class="block hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
