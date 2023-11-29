@@ -23,7 +23,7 @@
 
             <input type="hidden" name="id" value="@if (!empty($pedido->id)){{$pedido->id}}@elseif(!empty(old('id'))){{old('id')}}@else{{''}}@endif">
 
-            <div class="flex">
+            <!--<div class="flex">
                 <div class="w-1/2 mr-2">
                     <label class="block">
                         <span class="text-pink-600">Usuário</span>
@@ -36,7 +36,9 @@
                         </select>
                     </label>
                 </div>
-            </div><br><br>
+            </div><br><br>-->
+
+            <input type="hidden" name="usuario_id" value="{{Auth::user()->id}}">
 
             <div class="flex">
                 <div class="w-1/2 mr-2">
