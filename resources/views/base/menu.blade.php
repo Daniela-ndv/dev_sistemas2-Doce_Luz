@@ -1,21 +1,21 @@
 <header class="bg-white">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between p-7 lg:px-8" aria-label="Global">
-      <div class="flex lg:flex-1">
-        <a href="" class="-m-1.5 p-1.5">
-          <span class="sr-only">Doce Luz</span>
-          <img class="h-8 w-auto" src="{{asset('storage/imagem/doce_luz.png')}}" alt="logo Doce Luz">
-        </a>
-      </div>
-      <div class="hidden lg:flex lg:gap-x-12 items-center justify-between">
-        <a href="{{ route('index') }}" class="hover:text-blue-600">Index</a>
-        <a href="{{ route('pedido.index') }}" class="hover:text-blue-600">Pedidos</a>
-        <a href="{{ route('cartao.index') }}" class="hover:text-blue-600">Cartões</a>
-        <a href="{{ route('produto.index') }}" class="hover:text-blue-600">Produto</a>
-      </div>
+  <nav class="mx-auto flex max-w-7xl items-center justify-between p-7 lg:px-8" aria-label="Global">
+    <div class="flex lg:flex-1">
+      <a href="" class="-m-1.5 p-1.5">
+        <span class="sr-only">Doce Luz</span>
+        <img class="h-8 w-auto" src="{{asset('storage/imagem/doce_luz.png')}}" alt="logo Doce Luz">
+      </a>
+    </div>
+    <div class="hidden lg:flex lg:gap-x-12 items-center justify-between">
+      <a href="{{ route('index') }}" class="hover:text-blue-600">Index</a>
+      <a href="{{ route('pedido.index') }}" class="hover:text-blue-600">Pedidos</a>
+      <a href="{{ route('cartao.index') }}" class="hover:text-blue-600">Cartões</a>
+      <a href="{{ route('produto.index') }}" class="hover:text-blue-600">Produto</a>
+    </div>
 
-      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
 
-        <!--
+      <!--
             <div class="relative" >
             @if (Route::has('login'))
               @auth
@@ -66,65 +66,74 @@
         </div>
     -->
 
-        <div class="relative inline-block text-left">
-            @if (Route::has('login'))
-              @auth
-
-
-            <div>
-              <button id="dropdownDefaultButton" type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
-                Menu
-                <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-                </svg>
-              </button>
-            </div>
-
-            <div class="absolute right-0 z-10 mt-2 w-56 rounded-md bg-white shadow-lg focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" >
-              <div class="py-1" role="none">
-
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <a href="{{ route('logout') }}" class="block hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                        <button
-                        type="button"
-                        role="menuitem"
-                        onclick="event.preventDefault();
-                        this.closest('form').submit();"
-                        class="text-gray-700 block px-4 py-2 text-sm">
-                        Log Out</button>
-                    </a>
-                </form>
-
-                <a href="{{ route('profile.edit') }}" class="block hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                    <button
-                    type="button"
-                    role="menuitem"
-                    class="text-gray-700 block px-4 py-2 text-sm">
-                    Perfil</button>
-                </a>
-
-              </div>
-            </div>
-            @else
-                    <a href="{{ route('login') }}">
-                    <button
-                    type="button"
-                    class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-                    Log in</button>
-                    </a>
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}">
-                    <button
-                    type="button"
-                    class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-                    Registre-se</button>
-                    </a>
-                @endif
-                @endauth
-            @endif
+      <div class="relative inline-block text-left">
+        @if (Route::has('login'))
+        @auth
+        <button id="dropdown-button" class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-rose-800 bg-white border border-rose-800 hover:bg-rose-800 hover:bg-opacity-20 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-rose-100 focus:ring-rose-800 focus:ring-opacity-30">
+          {{ Auth::user()->name }}
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2 -mr-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div id="dropdown-menu" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 ">
+          <div class="py-2 p-2" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-button">
+            <a class="flex block rounded-md px-4 py-2 text-sm text-rose-800 hover:bg-rose-800 hover:bg-opacity-20 active:bg-rose-100 cursor-pointer" role="menuitem" href="{{url('profile')}}">
+              <!--<i class="fa-regular fa-user pr-2 pt-1"></i>--> Perfil
+            </a>
+            <!-- Authentication -->
+            <form method="POST" action="{{ route('logout') }}">
+              @csrf
+              <a class="flex block rounded-md px-4 py-2 text-sm text-rose-800 hover:bg-rose-800 hover:bg-opacity-20 active:bg-rose-100 cursor-pointer" role="menuitem" href="route('logout')" onclick="event.preventDefault();
+                                  this.closest('form').submit();">
+                <!--<i class="fa-solid fa-arrow-right-from-bracket pr-2 pt-1"></i>-->
+                {{ __('Sair') }}
+              </a>
+            </form>
           </div>
-
+        </div>
+        @else
+        <a href="{{ route('login') }}">
+          <button type="button" class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+            Log in</button>
+        </a>
+        @if (Route::has('register'))
+        <a href="{{ route('register') }}">
+          <button type="button" class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+            Registre-se</button>
+        </a>
+        @endif
+        @endauth
+        @endif
       </div>
-    </nav>
-  </header>
+      <script>
+        const dropdownButton = document.getElementById('dropdown-button');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        let isDropdownOpen = true; // Set to true to open the dropdown by default, false to close it by default
+
+        // Function to toggle the dropdown
+        function toggleDropdown() {
+          isDropdownOpen = !isDropdownOpen;
+          if (isDropdownOpen) {
+            dropdownMenu.classList.remove('hidden');
+          } else {
+            dropdownMenu.classList.add('hidden');
+          }
+        }
+
+        // Initialize the dropdown state
+        toggleDropdown();
+
+        // Toggle the dropdown when the button is clicked
+        dropdownButton.addEventListener('click', toggleDropdown);
+
+        // Close the dropdown when clicking outside of it
+        window.addEventListener('click', (event) => {
+          if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.add('hidden');
+            isDropdownOpen = false;
+          }
+        });
+      </script>
+    </div>
+  </nav>
+</header>
