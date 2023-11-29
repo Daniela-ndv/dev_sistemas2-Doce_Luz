@@ -13,7 +13,6 @@
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/compiled-tailwind.min.css" />
 
-
     <script>
         tailwind.config = {
             theme: {
@@ -29,12 +28,11 @@
 </head>
 
 <body>
-    @include('base.menu')
     @include('base.flash-message')
+    @include('base.menu')
     <div class="md:container md:mx-auto px-8">
         @yield('content')
     </div>
-
     @include('base.footer')
 </body>
 

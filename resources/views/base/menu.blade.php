@@ -12,110 +12,126 @@
         <a href="{{ route('cartao.index') }}" class="hover:text-blue-600">Cartões</a>
         <a href="{{ route('produto.index') }}" class="hover:text-blue-600">Produto</a>
       </div>
+
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
 
-        <div class="relative" >
-              @if (Route::has('login'))
-                @auth
-                <!--
-                <div class="relative" data-te-dropdown-ref>
-                <a href="{{ url('/dashboard') }}">
-                  <button
-                    class="flex items-center whitespace-nowrap rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] motion-reduce:transition-none dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                    type="button"
-                    id="dropdownMenuButton1"
-                    data-te-dropdown-toggle-ref
-                    aria-expanded="false"
-                    data-te-ripple-init
-                    data-te-ripple-color="light">
-                    {{ Auth::user()->name }}
-                    <span class="ml-2 w-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        class="h-5 w-5">
-                        <path
-                          fill-rule="evenodd"
-                          d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                          clip-rule="evenodd" />
-                      </svg>
-                    </span>
-                  </button>
-                </a>
-                  <ul
-                    class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
-                    aria-labelledby="dropdownMenuButton1"
-                    data-te-dropdown-menu-ref>
-                    <li>
-                        <form method="POST" action="{{ route('logout') }}">
-                          @csrf
-                          <a href="{{ route('logout') }}">
-                              <button
-                              type="button"
-                              onclick="event.preventDefault();
-                              this.closest('form').submit();"
-                              class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-                              Log Out</button>
-                          </a>
-                        </form>
-                    </li>
-                    <li>
-                      <a
-                        class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
-                        href="{{ route('profile.edit') }}"
-                        data-te-dropdown-item-ref
-                        >Perfil</a>
-                    </li>
-                  </ul>
-                </div>
-          -->
-              
+        <!--
+            <div class="relative" >
+            @if (Route::has('login'))
+              @auth
+
                 <a href="{{ url('/dashboard') }}">
                     <button
                     type="button"
                     class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
                     {{ Auth::user()->name }}</button>
-                  </a> 
+                </a>
 
                 <form method="POST" action="{{ route('logout') }}">
-                  @csrf
-                  <a href="{{ route('logout') }}">
-                      <button
-                      type="button"
-                      onclick="event.preventDefault();
-                      this.closest('form').submit();"
-                      class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-                      Log Out</button>
-                  </a>
-                  </form>
+                @csrf
+                <a href="{{ route('logout') }}">
+                    <button
+                    type="button"
+                    onclick="event.preventDefault();
+                    this.closest('form').submit();"
+                    class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+                    Log Out</button>
+                </a>
+                </form>
 
-                  <a href="{{ route('profile.edit') }}">
+                <a href="{{ route('profile.edit') }}">
                     <button
                     type="button"
                     class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
                     Perfil</button>
-                  </a> 
+                </a>
 
-                  @else
+                @else
                     <a href="{{ route('login') }}">
-                      <button
-                      type="button"
-                      class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-                      Log in</button>
+                    <button
+                    type="button"
+                    class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+                    Log in</button>
                     </a>
-                  @if (Route::has('register'))
+                @if (Route::has('register'))
                     <a href="{{ route('register') }}">
-                      <button
-                      type="button"
-                      class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-                      Registre-se</button>
+                    <button
+                    type="button"
+                    class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+                    Registre-se</button>
                     </a>
-                  @endif
+                @endif
                 @endauth
-              @endif
-
+            @endif
         </div>
+    -->
+
+        <div class="relative inline-block text-left">
+            @if (Route::has('login'))
+              @auth
+
+
+            <div>
+              <button id="dropdownDefaultButton" type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                Menu
+                <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+
+            <div class="absolute right-0 z-10 mt-2 w-56 rounded-md bg-white shadow-lg focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" >
+              <div class="py-1" role="none">
+
+                <a href="{{ url('/dashboard') }}" class="block hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" >
+                    <button
+                    type="button"
+                    role="menuitem"
+                    class="text-gray-700 block px-4 py-2 text-sm" >
+                    {{ Auth::user()->name }}</button>
+                </a>
+
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a href="{{ route('logout') }}" class="block hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                        <button
+                        type="button"
+                        role="menuitem"
+                        onclick="event.preventDefault();
+                        this.closest('form').submit();"
+                        class="text-gray-700 block px-4 py-2 text-sm">
+                        Log Out</button>
+                    </a>
+                </form>
+
+                <a href="{{ route('profile.edit') }}" class="block hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                    <button
+                    type="button"
+                    role="menuitem"
+                    class="text-gray-700 block px-4 py-2 text-sm">
+                    Perfil</button>
+                </a>
+
+              </div>
+            </div>
+            @else
+                    <a href="{{ route('login') }}">
+                    <button
+                    type="button"
+                    class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+                    Log in</button>
+                    </a>
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}">
+                    <button
+                    type="button"
+                    class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+                    Registre-se</button>
+                    </a>
+                @endif
+                @endauth
+            @endif
+          </div>
 
       </div>
     </nav>

@@ -56,7 +56,7 @@
                     <div
                       class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-pink-400">
                       <i>
-                        <img src="resources/views/brigadeiro.png">
+                        <img src="brigadeiro.png" >
                       </i>
                     </div>
                     <h6 class="text-xl font-semibold">Brigadeiros</h6>
@@ -74,7 +74,7 @@
                     <div
                       class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-pink-400">
                       <i>
-                        <img src="resources/views/vela.png">
+                        <img src="vela.png">
                       </i>
                     </div>
                     <h6 class="text-xl font-semibold">Velas</h6>
@@ -92,7 +92,7 @@
                     <div
                       class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-pink-400">
                       <i>
-                        <img src="resources/views/dinheiro.png">
+                        <img src="dinheiro.png">
                       </i>
                     </div>
                     <h6 class="text-xl font-semibold">Custo</h6>
@@ -195,7 +195,7 @@
                 <div class="px-6">
                   <img
                     alt="Camila"
-                    src="resources/views/equipe/camila.png"
+                    src="camila.PNG"
                     class="shadow-lg rounded-full max-w-full mx-auto"
                     style="max-width: 120px;"
                   />
@@ -221,7 +221,7 @@
                 <div class="px-6">
                   <img
                     alt="Ravi"
-                    src="resources/views/equipe/ravi.png"
+                    src="ravi.PNG"
                     class="shadow-lg rounded-full max-w-full mx-auto"
                     style="max-width: 120px;"
                   />
@@ -247,7 +247,7 @@
                 <div class="px-6">
                   <img
                     alt="Daniela"
-                    src="resources/views/equipe/daniela.png"
+                    src="daniela.PNG"
                     class="shadow-lg rounded-full max-w-full mx-auto"
                     style="max-width: 120px;"
                   />
@@ -273,7 +273,7 @@
                 <div class="px-6">
                   <img
                     alt="Danieli"
-                    src="resources/views/equipe/danieli.png"
+                    src="danieli.PNG"
                     class="shadow-lg rounded-full max-w-full mx-auto"
                     style="max-width: 120px;"
                   />
