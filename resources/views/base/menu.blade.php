@@ -7,10 +7,10 @@
       </a>
     </div>
     <div class="hidden lg:flex lg:gap-x-12 items-center justify-between">
-      <a href="{{ route('index') }}" class="hover:text-blue-600">Index</a>
-      <a href="{{ route('pedido.index') }}" class="hover:text-blue-600">Pedidos</a>
-      <a href="{{ route('cartao.index') }}" class="hover:text-blue-600">Cartões</a>
-      <a href="{{ route('produto.index') }}" class="hover:text-blue-600">Produto</a>
+      <a href="{{ route('index') }}" class="font-semibold leading-6 text-pink-600 hover:text-pink-300">Index</a>
+      <a href="{{ route('pedido.index') }}" class="font-semibold leading-6 text-pink-600 hover:text-pink-300">Pedidos</a>
+      <a href="{{ route('cartao.index') }}" class="font-semibold leading-6 text-pink-600 hover:text-pink-300">Cartões</a>
+      <a href="{{ route('produto.index') }}" class="font-semibold leading-6 text-pink-600 hover:text-pink-300">Produto</a>
     </div>
 
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -69,7 +69,7 @@
       <div class="relative inline-block text-left">
         @if (Route::has('login'))
         @auth
-        <button id="dropdown-button" class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-rose-800 bg-white border border-rose-800 hover:bg-rose-800 hover:bg-opacity-20 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-rose-100 focus:ring-rose-800 focus:ring-opacity-30">
+        <button id="dropdown-button" class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-pink-600 bg-white border border-pink-600 hover:bg-pink-600 hover:bg-opacity-20 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-pink-100 focus:ring-pink-600 focus:ring-opacity-30">
           {{ Auth::user()->name }}
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2 -mr-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -77,13 +77,13 @@
         </button>
         <div id="dropdown-menu" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 ">
           <div class="py-2 p-2" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-button">
-            <a class="flex block rounded-md px-4 py-2 text-sm text-rose-800 hover:bg-rose-800 hover:bg-opacity-20 active:bg-rose-100 cursor-pointer" role="menuitem" href="{{url('profile')}}">
+            <a class="flex block rounded-md px-4 py-2 text-sm text-pink-600 hover:bg-pink-600 hover:bg-opacity-20 active:bg-pink-100 cursor-pointer" role="menuitem" href="{{url('profile')}}">
               <!--<i class="fa-regular fa-user pr-2 pt-1"></i>--> Perfil
             </a>
             <!-- Authentication -->
             <form method="POST" action="{{ route('logout') }}">
               @csrf
-              <a class="flex block rounded-md px-4 py-2 text-sm text-rose-800 hover:bg-rose-800 hover:bg-opacity-20 active:bg-rose-100 cursor-pointer" role="menuitem" href="route('logout')" onclick="event.preventDefault();
+              <a class="flex block rounded-md px-4 py-2 text-sm text-pink-600 hover:bg-pink-600 hover:bg-opacity-20 active:bg-pink-100 cursor-pointer" role="menuitem" href="route('logout')" onclick="event.preventDefault();
                                   this.closest('form').submit();">
                 <!--<i class="fa-solid fa-arrow-right-from-bracket pr-2 pt-1"></i>-->
                 {{ __('Sair') }}
