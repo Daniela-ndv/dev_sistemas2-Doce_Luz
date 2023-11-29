@@ -24,6 +24,8 @@
 
             <input type="hidden" name="id" value="@if (!empty($cartao->id)){{$cartao->id}}@elseif(!empty(old('id'))){{old('id')}}@else{{''}}@endif">
 
+            <input type="hidden" name="usuario_id" value="{{Auth::user()->id}}">
+
             <label class="block">
                 <span class="text-pink-700">Nome do titular</span>
                 <input type="text" name="nomeTitular" placeholder=" " class="mt-0 block w-full px-0.5 border-0 border-b-2 border-pink-200 focus:ring-0 focus:border-black"
