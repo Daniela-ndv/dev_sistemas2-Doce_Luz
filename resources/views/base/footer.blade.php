@@ -15,11 +15,11 @@
       </svg>
     </div>
     <div class="container mx-auto px-4">
-        <hr class="my-6 border-gray-400" />
+        <hr class="my-6 border-pink-600" />
       <div class="flex flex-wrap">
         <div class="w-full lg:w-6/12 px-4">
-          <h4 class="text-3xl font-semibold">Mantenha-nos juntos!</h4>
-          <h5 class="text-lg mt-0 mb-2 text-gray-700">
+          <h4 class="text-3xl font-semibold text-pink-600">Mantenha-nos juntos!</h4>
+          <h5 class="text-lg mt-0 mb-2 text-pink-500">
             Nos encontre em todas as plataformas!
           </h5>
           <div class="mt-6">
@@ -50,7 +50,7 @@
           <div class="flex flex-wrap items-top mb-6">
             <div class="w-full lg:w-4/12 px-4 ml-auto">
               <span
-                class="block uppercase text-gray-600 text-sm font-semibold mb-2"
+                class="block uppercase text-pink-600 text-sm font-semibold mb-2"
                 >Whatsapp</span
               >
               <ul class="list-unstyled">
@@ -79,7 +79,7 @@
             </div>
             <div class="w-full lg:w-4/12 px-4">
               <span
-                class="block uppercase text-gray-600 text-sm font-semibold mb-2"
+                class="block uppercase text-pink-600 text-sm font-semibold mb-2"
                 >Outros links</span
               >
               <ul class="list-unstyled">
@@ -109,7 +109,7 @@
           </div>
         </div>
       </div>
-      <hr class="my-6 border-gray-400" />
+      <hr class="my-6 border-pink-600" />
       <div
         class="flex flex-wrap items-center md:justify-between justify-center">
         <div class="w-full md:w-4/12 px-4 mx-auto text-center">
