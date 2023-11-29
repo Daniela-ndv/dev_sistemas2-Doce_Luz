@@ -3,7 +3,7 @@
       <div class="flex lg:flex-1">
         <a href="" class="-m-1.5 p-1.5">
           <span class="sr-only">Doce Luz</span>
-          <img class="h-8 w-auto" src="doce_luz.PNG" alt="logo Doce Luz">
+          <img class="h-8 w-auto" src="{{asset('storage/imagem/doce_luz.png')}}" alt="logo Doce Luz">
         </a>
       </div>
       <div class="hidden lg:flex lg:gap-x-12 items-center justify-between">
