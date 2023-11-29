@@ -2,14 +2,6 @@
 @section("titulo", 'Formulário Pedidos')
 @section('content')
 
-    @if($errors->any())
-        <ul>
-            @foreach ($errors->all() as $error )
-                <li>{{$error}}</li>
-            @endforeach
-        </ul>
-    @endif
-
     @php
         if(!empty($pedido->id)){
             $route = route('pedido.update', $pedido->id);
@@ -48,7 +40,7 @@
 
             <div class="flex">
                 <div class="w-1/2 mr-2">
-                    <label class="block"> 
+                    <label class="block">
                         <span>N° cartão</span>
                         <select name="cartao_id" id="" class="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black">
                             @foreach ($cartao as $item)
