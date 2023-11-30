@@ -70,6 +70,8 @@
                   <tr>
                     <th scope="col" class="px-6 py-4 text-pink-600">ID</th>
                     <th scope="col" class="px-6 py-4 text-pink-600">Usuário</th>
+                    <th scope="col" class="px-6 py-4 text-pink-600">Produto</th>
+                    <th scope="col" class="px-6 py-4 text-pink-600">Quantidade</th>
                     <th scope="col" class="px-6 py-4 text-pink-600">Forma de pagamento</th>
                     <th scope="col" class="px-6 py-4 text-pink-600">Cartão</th>
                     <th scope="col" class="px-6 py-4 text-pink-600">Status</th>
@@ -82,6 +84,8 @@
                   <tr class="border-b border-pink-600 transition duration-300 ease-in-out hover:bg-pink-50 dark:border-neutral-500 dark:hover:bg-neutral-600">
                     <td class="whitespace-nowrap px-6 py-4 font-medium text-pink-600">{{$item->id}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->usuario->name ?? ""}}</td>
+                    <td class="whitespace-nowrap px-6 py-4">{{$item->produto->nome ?? ""}}</td>
+                    <td class="whitespace-nowrap px-6 py-4">{{$item->quantidade}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->formaPagamento->nome ?? ""}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->cartao->numeroCartao ?? ""}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->status->nome ?? ""}}</td>
