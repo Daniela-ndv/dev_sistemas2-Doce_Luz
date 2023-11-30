@@ -13,58 +13,7 @@
       <a href="{{ route('produto.index') }}" class="font-semibold leading-6 text-pink-600 hover:text-pink-300">Produto</a>
     </div>
 
-    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-
-      <!--
-            <div class="relative" >
-            @if (Route::has('login'))
-              @auth
-
-                <a href="{{ url('/dashboard') }}">
-                    <button
-                    type="button"
-                    class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-                    {{ Auth::user()->name }}</button>
-                </a>
-
-                <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <a href="{{ route('logout') }}">
-                    <button
-                    type="button"
-                    onclick="event.preventDefault();
-                    this.closest('form').submit();"
-                    class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-                    Log Out</button>
-                </a>
-                </form>
-
-                <a href="{{ route('profile.edit') }}">
-                    <button
-                    type="button"
-                    class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-                    Perfil</button>
-                </a>
-
-                @else
-                    <a href="{{ route('login') }}">
-                    <button
-                    type="button"
-                    class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-                    Log in</button>
-                    </a>
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}">
-                    <button
-                    type="button"
-                    class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-                    Registre-se</button>
-                    </a>
-                @endif
-                @endauth
-            @endif
-        </div>
-    -->
+    <div class="block hidden lg:flex lg:flex-1 lg:justify-end">
 
       <div class="relative inline-block text-left">
         @if (Route::has('login'))

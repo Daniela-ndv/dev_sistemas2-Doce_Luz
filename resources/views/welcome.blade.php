@@ -3,48 +3,46 @@
 @section('content')
 
     <main>
-      <div
-        class="relative pt-16 pb-32 flex content-center items-center justify-center"
-        style="min-height: 85vh;">
         <div
-          class="absolute top-0 w-full h-full bg-center bg-cover"
-          style='background-image: url("https://www.santos.sp.gov.br/static/files_www/styles/newspagesimples/public/field/image/brigadeiro_0.jpg?itok=hO6FM2aS");'
+            class="block p-6 bg-pink-600 border border-pink-200 rounded-lg shadow shadow-pink-200"
+            style='background-image: url("storage/imagem/fundo.jpg");'
         >
-          <span
-            id="blackOverlay"
-            class="w-full h-full absolute opacity-75 bg-black"
-          ></span>
-        </div>
-        <div class="container relative mx-auto">
-          <div class="items-center flex flex-wrap">
-            <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
-              <div class="pr-12">
-                <h1 class="text-white font-semibold text-8xl">
-                  Doce Luz
-                </h1>
-                <p class="mt-4 text-lg text-gray-300">
-                  Adoce sua vida conosco!
-                </p>
-              </div>
+
+            <div
+                class="relative pt-16 pb-32 flex content-center items-center justify-center"
+                style="min-height: 85vh;">
+
+                <div class="container relative mx-auto">
+                <div class="items-center flex flex-wrap">
+                    <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+                    <div class="pr-12">
+                        <h1 class="text-white font-semibold text-8xl">
+                        Doce Luz
+                        </h1>
+                        <p class="mt-4 text-lg text-gray-300">
+                        Adoce sua vida conosco!
+                        </p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div
+                class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
+                style="height: 70px;"
+                >
+                <svg
+                    class="absolute bottom-0 overflow-hidden"
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="none"
+                    version="1.1"
+                    viewBox="0 0 2560 100"
+                    x="0"
+                    y="0"
+                >
+                </svg>
+                </div>
             </div>
-          </div>
-        </div>
-        <div
-          class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
-          style="height: 70px;"
-        >
-          <svg
-            class="absolute bottom-0 overflow-hidden"
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="none"
-            version="1.1"
-            viewBox="0 0 2560 100"
-            x="0"
-            y="0"
-          >
-          </svg>
-        </div>
-      </div>
+        </div><br>
 
       <section class="pb-20 bg-pink-100">
         <div class="container mx-auto px-4">
