@@ -21,6 +21,8 @@ class PedidoSeeder extends Seeder
             DB::table('pedidos')->insert(
                 [
                     'usuario_id' => $fake->numberBetween($min = 1, $max = 5),
+                    'produto_id' => $fake->numberBetween($min = 1, $max = 5),
+                    'quantidade' => $fake->numberBetween($min = 1, $max = 20),
                     'forma_pagamento_id' => $fake->numberBetween($min = 1, $max = 2),
                     'cartao_id' => $fake->numberBetween($min = 1, $max = 5),
                     'status_id' => $fake->numberBetween($min = 1, $max = 5),

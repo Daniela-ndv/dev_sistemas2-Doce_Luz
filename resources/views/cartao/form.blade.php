@@ -84,7 +84,7 @@
                                     @if(!empty($cartao->id)){{ ( $item->id == $cartao->tipo_id) ? 'selected' : '' }}
                                     @else{{ '' }}@endif >{{$item->nome}}
                                 </option>
-                            @endforeach
+                            @endforeach 
                         </select>
                     </label>
                 </div>

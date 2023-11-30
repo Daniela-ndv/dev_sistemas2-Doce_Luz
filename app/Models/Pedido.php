@@ -16,6 +16,8 @@ class Pedido extends Model
      */
     protected $fillable = [
         'usuario_id',
+        'produto_id',
+        'quantidade',
         'forma_pagamento_id',
         'cartao_id',
         'status_id',
@@ -30,6 +32,12 @@ class Pedido extends Model
     protected $casts = [
         'id' => 'integer',
     ];
+
+    public function produto(){
+        //relacionamento 1 - 1
+        return $this->belongsTo(Produto::class,
+        'produto_id','id');
+    }
 
     public function usuario(){
         //relacionamento 1 - 1
@@ -55,13 +63,13 @@ class Pedido extends Model
         'cartao_id','id');
     }
 
-    public function item_venda(){ 
+    public function item_venda(){
         //relacionamento 1 - n
         return $this->hasMany(ItemVenda::class);
     }
 
     public function produtos(){
-        //relacionamento n - n 
+        //relacionamento n - n
         return $this->belongsToMany(Produto::class,
             'item_venda','id');
     }//'item_venda': tabela intermediária

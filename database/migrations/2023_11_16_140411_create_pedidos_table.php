@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('usuario_id')->constrained('users')->default(null)->onDelete('cascade');
+            $table->string('quantidade', 200)->nullable();
+            $table->foreignId('produto_id')->constrained('produtos')->default(null)->onDelete('cascade');
             $table->foreignId('forma_pagamento_id')->constrained('forma_pagamento_tipo_cartaos')->default(null)->onDelete('cascade');
             $table->foreignId('cartao_id')->constrained('cartaos')->default(null)->onDelete('cascade');
             $table->foreignId('status_id')->constrained('statuses')->default(null)->onDelete('cascade');

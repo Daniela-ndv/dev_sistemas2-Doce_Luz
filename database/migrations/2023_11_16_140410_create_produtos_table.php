@@ -20,7 +20,7 @@ return new class extends Migration
             $table->decimal('valorVenda', 6, 2);
             $table->string('descricao', 200)->nullable();
             $table->string('imagem', 200);
-            $table->timestamps(); 
+            $table->timestamps();  
         });
     }
 

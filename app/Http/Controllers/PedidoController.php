@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Charts\GraficoPedido;
 use App\Models\Pedido;
 use App\Models\Cartao;
+use App\Models\Produto;
 use App\Models\User;
 use App\Models\FormaPagamentoTipoCartao;
 use App\Models\Status;
@@ -29,12 +30,14 @@ class PedidoController extends Controller
     public function create()
     {
         $usuario = User::orderBy('name')->get();
+        $produto = Produto::orderBy('nome')->get();
         $pagamento = FormaPagamentoTipoCartao::orderBy('nome')->get();
         $cartao = Cartao::orderBy('nomeTitular')->get();
         $status = Status::orderBy('nome')->get();
 
         return view('pedido.form')->with([
             'usuario'=> $usuario,
+            'produto'=> $produto,
             'pagamento'=> $pagamento,
             'cartao'=> $cartao,
             'status'=> $status ]);
@@ -46,19 +49,16 @@ class PedidoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            //'usuario_id'=>'required|max:10',
-            //'forma_pagamento_id'=>'required|max:10',
-            //'cartao_id'=>'required|max:10',
-            //'status_id'=>'required|max:10',
+            'quantidade'=>'required|max:200',
             'observacao'=>'required|max:200',
         ],[
-            //'usuario_id.required'=>"O :attribute é obrigatório!",
-            //'forma_pagamento_id.required'=>"O :attribute é obrigatório!",
-            //'cartao_id.required'=>"O :attribute é obrigatório!",
+            'quantidade.max'=>" Só é permitido 200 caracteres em :attribute !",
             'observacao.max'=>" Só é permitido 200 caracteres em :attribute !",
         ]);
 
         $dados = ['usuario_id'=> $request->usuario_id,
+            'produto_id'=> $request->produto_id,
+            'quantidade'=>$request->quantidade,
             'forma_pagamento_id'=> $request->forma_pagamento_id,
             'cartao_id'=> $request->cartao_id,
             'status_id'=> $request->status_id,
@@ -83,13 +83,14 @@ class PedidoController extends Controller
         $pedido = Pedido::find($id);
 
         $usuario = User::orderBy('name')->get();
+        $produto = Produto::orderBy('nome')->get();
         $pagamento = FormaPagamentoTipoCartao::orderBy('nome')->get();
         $cartao = Cartao::orderBy('nomeTitular')->get();
         $status = Status::orderBy('nome')->get();
-        //$venda = ItemVenda::orderBy('pedido_id')->get();
 
         return view('pedido.form')->with([
         'pedido'=>$pedido,
+        'produto'=> $produto,
         'usuario'=> $usuario,
         'pagamento'=> $pagamento,
         'cartao'=> $cartao,
@@ -102,19 +103,16 @@ class PedidoController extends Controller
     public function update(Request $request, Pedido $pedido)
     {
         $request->validate([
-            //'usuario_id'=>'required|max:10',
-            //'forma_pagamento_id'=>'required|max:10',
-            //'cartao_id'=>'required|max:10',
-            //'status_id'=>'required|max:10',
+            'quantidade'=>'required|max:200',
             'observacao'=>'required|max:200',
         ],[
-            //'usuario_id.required'=>"O :attribute é obrigatório!",
-            //'forma_pagamento_id.required'=>"O :attribute é obrigatório!",
-            //'cartao_id.required'=>"O :attribute é obrigatório!",
+            'quantidade.max'=>" Só é permitido 200 caracteres em :attribute !",
             'observacao.max'=>" Só é permitido 200 caracteres em :attribute !",
         ]);
 
         $dados = ['usuario_id'=> $request->usuario_id,
+            'produto_id'=> $request->produto_id,
+            'quantidade'=>$request->quantidade,
             'forma_pagamento_id'=> $request->forma_pagamento_id,
             'cartao_id'=> $request->cartao_id,
             'status_id'=> $request->status_id,

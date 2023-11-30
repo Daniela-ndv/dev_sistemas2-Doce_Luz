@@ -43,6 +43,28 @@
             <div class="flex">
                 <div class="w-1/2 mr-2">
                     <label class="block">
+                        <span class="text-pink-600">Produto</span>
+                        <select name="produto_id" id="" class="mt-0 block w-full px-0.5 border-0 border-b-2 border-pink-200 focus:ring-0 focus:border-black">
+                            @foreach ($produto as $item)
+                                <option value="{{ $item->id }}"
+                                    @if(!empty($pedido->id)){{ ( $item->id == $pedido->produto_id) ? 'selected' : '' }}@else{{ '' }}@endif >{{$item->nome}}
+                                </option>
+                            @endforeach
+                        </select>
+                    </label>
+                </div>
+                <div class="w-1/2 mr-2">
+                    <label class="block">
+                        <span class="text-pink-700">Quantidade</span>
+                        <input type="number" name="quantidade" placeholder=" " class="mt-0 block w-full px-0.5 border-0 border-b-2 border-pink-200 focus:ring-0 focus:border-black"
+                        value="@if(!empty($pedido->quantidade)){{$pedido->quantidade}}@elseif(!empty(old('quantidade'))){{old('quantidade')}}@else{{''}}@endif">
+                    </label><br><br>
+                </div>
+            </div><br><br>
+
+            <div class="flex">
+                <div class="w-1/2 mr-2">
+                    <label class="block">
                         <span class="text-pink-600">N° cartão</span>
                         <select name="cartao_id" id="" class="mt-0 block w-full px-0.5 border-0 border-b-2 border-pink-200 focus:ring-0 focus:border-black">
                             @foreach ($cartao as $item)
