@@ -21,6 +21,7 @@ class CartaoSeeder extends Seeder
                 [
                     'nomeTitular' => $fake->name,
                     'tipo_id' => $fake->numberBetween($min = 1, $max = 2),
+                    'usuario_id' => $fake->numberBetween($min = 1, $max = 5),
                     'numeroCartao' => $fake->randomNumber($nbDigits = NULL, $strict = false), 
                     'dataValidade' => $fake->date($format = 'Y-m-d', $min = 'now'),
                     'codigoSeguranca' => $fake->randomNumber($nbDigits = NULL, $strict = false),

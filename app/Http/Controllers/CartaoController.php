@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cartao;
 use App\Models\FormaPagamentoTipoCartao;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CartaoController extends Controller
@@ -14,7 +15,7 @@ class CartaoController extends Controller
     public function index()
     {
         $cartaos = Cartao::all();
-        return view('cartao.list')->with(['cartaos'=> $cartaos]);
+        return view('cartao.list')->with(['cartaos'=> $cartaos,]);
     }
 
     /**
@@ -23,6 +24,7 @@ class CartaoController extends Controller
     public function create()
     {
         $pagamento = FormaPagamentoTipoCartao::orderBy('nome')->get();
+        $usuario = User::orderBy('name')->get();
 
         return view('cartao.form')->with(['pagamento'=> $pagamento]);
     }
@@ -33,13 +35,15 @@ class CartaoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'tipo_id'=>'required|max:10',
+            'tipo_id'=>'required|max:20',
+            'usuario_id'=>'required|max:20',
             'nomeTitular'=>'required|max:100',
             'numeroCartao'=>'required|max:10',
             'dataValidade'=>'required|max:10',
             'codigoSeguranca'=>'required|max:60',
         ],[
             'tipo_id.required'=>"O :attribute é obrigatório!",
+            'usuario_id.required'=>"O :attribute é obrigatório!",
             'nomeTitular.required'=>"O :attribute é obrigatório!",
             'nomeTitular.max'=>" Só é permitido 100 caracteres em :attribute !",
             'numeroCartao.required'=>"O :attribute é obrigatório!",
@@ -50,6 +54,7 @@ class CartaoController extends Controller
         ]);
 
         $dados = ['tipo_id'=> $request->tipo_id,
+            'usuario_id'=> $request->usuario_id,
             'nomeTitular'=> $request->nomeTitular,
             'numeroCartao'=> $request->numeroCartao,
             'dataValidade'=> $request->dataValidade,
@@ -83,10 +88,13 @@ class CartaoController extends Controller
         //dd($cartao);
 
         $pagamento = FormaPagamentoTipoCartao::orderBy('nome')->get();
+        $usuario = User::orderBy('name')->get();
 
         return view('cartao.form')->with([
         'cartao'=> $cartao,
-        'pagamento'=> $pagamento]);
+        'pagamento'=> $pagamento,
+        'usuario'=>$usuario,
+        ]);
 
     }
 
@@ -96,13 +104,15 @@ class CartaoController extends Controller
     public function update(Request $request, Cartao $cartao)
     {
         $request->validate([
-            'tipo_id'=>'required|max:10',
+            'tipo_id'=>'required|max:20',
+            'usuario_id'=>'required|max:20',
             'nomeTitular'=>'required|max:100',
             'numeroCartao'=>'required|max:10',
             'dataValidade'=>'required|max:10',
             'codigoSeguranca'=>'required|max:60',
         ],[
             'tipo_id.required'=>"O :attribute é obrigatório!",
+            'usuario_id.required'=>"O :attribute é obrigatório!",
             'nomeTitular.required'=>"O :attribute é obrigatório!",
             'nomeTitular.max'=>" Só é permitido 100 caracteres em :attribute !",
             'numeroCartao.required'=>"O :attribute é obrigatório!",
@@ -112,6 +122,7 @@ class CartaoController extends Controller
         ]);
 
         $dados = ['tipo_id'=> $request->tipo_id,
+            'usuario_id'=> $request->usuario_id,
             'nomeTitular'=> $request->nomeTitular,
             'numeroCartao'=> $request->numeroCartao,
             'dataValidade'=> $request->dataValidade,

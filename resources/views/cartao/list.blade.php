@@ -52,6 +52,7 @@
                     <th scope="col" class="px-6 py-4 text-pink-600">ID</th>
                     <th scope="col" class="px-6 py-4 text-pink-600">Imagem</th>
                     <th scope="col" class="px-6 py-4 text-pink-600">Tipo</th>
+                    <th scope="col" class="px-6 py-4 text-pink-600">Usuário ID</th>
                     <th scope="col" class="px-6 py-4 text-pink-600">Nome titular</th>
                     <th scope="col" class="px-6 py-4 text-pink-600">N° cartão</th>
                     <th scope="col" class="px-6 py-4 text-pink-600">Data validade</th>
@@ -68,6 +69,7 @@
                     <td class="whitespace-nowrap h-32 w-32 object-cover"><img src="/storage/{{ $nome_imagem }}"
                         width="120px" alt="imagem"></td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->tipo_cartao->nome ?? ""}}</td>
+                    <td class="whitespace-nowrap px-6 py-4">{{$item->usuario->name ?? ""}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->nomeTitular}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->numeroCartao}}</td>
                     <td class="whitespace-nowrap px-6 py-4">{{$item->dataValidade}}</td>

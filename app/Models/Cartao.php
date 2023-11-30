@@ -16,6 +16,7 @@ class Cartao extends Model
      */
     protected $fillable = [
         'tipo_id',
+        'usuario_id',
         'nomeTitular',
         'numeroCartao',
         'dataValidade',
@@ -39,11 +40,11 @@ class Cartao extends Model
         'tipo_id','id');
     }
 
-    /*public function usuario(){
+    public function usuario(){
         //relacionamento 1 - 1
         return $this->belongsTo(User::class,
         'usuario_id','id');
-    }*/
+    }
 
     public function pedido(){
         //relacionamento 1 - n
