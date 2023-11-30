@@ -25,7 +25,7 @@ class CartaoSeeder extends Seeder
                     'numeroCartao' => $fake->randomNumber($nbDigits = NULL, $strict = false), 
                     'dataValidade' => $fake->date($format = 'Y-m-d', $min = 'now'),
                     'codigoSeguranca' => $fake->randomNumber($nbDigits = NULL, $strict = false),
-                    'imagem'=> $fake->image( $dir = 'storage/app/public/imagem/cartao',640,480, null, true),
+                    'imagem'=> $fake->image( $dir = 'storage\app\public\imagem\cartao',640,480, null, true), 
                 ]
             );
         }

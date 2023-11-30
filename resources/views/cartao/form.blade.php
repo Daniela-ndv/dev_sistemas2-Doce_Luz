@@ -36,7 +36,7 @@
                 $nome_imagem = !empty($cartao->imagem) ? $cartao->imagem : 'imagem/sem_imagem.jpg';
             @endphp
             <div>
-                <img class="h-40 w-40 object-cover" src="/storage/{{ $nome_imagem }}" width="300px"
+                <img class="h-40 w-40 object-cover" src="{{ $nome_imagem }}" width="300px"
                     alt="imagem">
                 <br>
                 <input
