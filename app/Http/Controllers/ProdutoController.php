@@ -35,10 +35,12 @@ class ProdutoController extends Controller
         ],[
             'nome.required'=>"O :attribute é obrigatório!",
             'nome.max'=>" Só é permitido 100 caracteres em :attribute !",
+            'valorCusto.required'=>"O :attribute é obrigatório!",
+            'valorCusto.max'=>" Só é permitido 6 caracteres em :attribute !",
+            'valorVenda.required'=>"O :attribute é obrigatório!",
+            'valorVenda.max'=>" Só é permitido 6 caracteres em :attribute !",
             'codigo.required'=>"O :attribute é obrigatório!",
             'codigo.max'=>" Só é permitido 40 caracteres em :attribute !",
-            'descricao.required'=>"O :attribute é obrigatório!",
-            'descricao.max'=>" Só é permitido 200 caracteres em :attribute !",
         ]);
 
         $dados = ['nome'=> $request->nome,
@@ -46,7 +48,6 @@ class ProdutoController extends Controller
             'valorCusto'=> $request->valorCusto,
             'valorVenda'=> $request->valorVenda,
             'descricao'=>$request->descricao,
-            'imagem'=>$request->imagem,
             'tipo_id'=>$request->tipo_id,
         ];
 
@@ -97,12 +98,12 @@ class ProdutoController extends Controller
         ],[
             'nome.required'=>"O :attribute é obrigatório!",
             'nome.max'=>" Só é permitido 100 caracteres em :attribute !",
+            'valorCusto.required'=>"O :attribute é obrigatório!",
+            'valorCusto.max'=>" Só é permitido 6 caracteres em :attribute !",
+            'valorVenda.required'=>"O :attribute é obrigatório!",
+            'valorVenda.max'=>" Só é permitido 6 caracteres em :attribute !",
             'codigo.required'=>"O :attribute é obrigatório!",
             'codigo.max'=>" Só é permitido 40 caracteres em :attribute !",
-            'descricao.required'=>"O :attribute é obrigatório!",
-            'descricao.max'=>" Só é permitido 200 caracteres em :attribute !",
-            'imagem.required'=>"O :attribute é obrigatório!",
-            'imagem.max'=>" Só é permitido 200 caracteres em :attribute !",
         ]);
 
         $dados = ['nome'=> $request->nome,
@@ -110,7 +111,6 @@ class ProdutoController extends Controller
             'valorCusto'=> $request->valorCusto,
             'valorVenda'=> $request->valorVenda,
             'descricao'=>$request->descricao,
-            'imagem'=>$request->imagem,
             'tipo_id'=>$request->tipo_id,
         ];
 

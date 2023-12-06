@@ -19,7 +19,7 @@ return new class extends Migration
             $table->decimal('valorCusto', 6, 2);
             $table->decimal('valorVenda', 6, 2);
             $table->string('descricao', 200)->nullable();
-            $table->string('imagem', 200);
+            $table->string('imagem', 200)->nullable();
             $table->timestamps();  
         });
     }
