@@ -48,8 +48,8 @@ class User extends Authenticatable
         return $this->hasMany(Pedido::class);
     }
 
-    /*public function cartao(){ 
+    public function cartao(){ 
         //relacionamento 1 - n
         return $this->hasMany(Cartao::class);
-    }*/
+    }
 }

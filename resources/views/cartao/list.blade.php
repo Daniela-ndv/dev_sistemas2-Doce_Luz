@@ -67,7 +67,7 @@
             @endphp
             <tr class="border-b border-pink-600 transition duration-300 ease-in-out hover:bg-pink-50 dark:border-pink-500 dark:hover:bg-pink-600">
               <td class="whitespace-nowrap px-6 py-4 font-medium text-pink-600">{{$item->id}}</td>
-              <td class="whitespace-nowrap px-6 py-4 font-medium text-pink-600"><img src="{{ $nome_imagem }}" width="100px" alt="imagem"></td>
+              <td class="h-32 w-32 object-cover"><img src="{{ $nome_imagem }}" width="100px" alt="imagem"></td>
               <td class="whitespace-nowrap px-6 py-4">{{$item->tipo_cartao->nome ?? ""}}</td>
               <td class="whitespace-nowrap px-6 py-4">{{$item->usuario->name ?? ""}}</td>
               <td class="whitespace-nowrap px-6 py-4">{{$item->nomeTitular}}</td>

@@ -52,7 +52,9 @@ class PedidoController extends Controller
             'quantidade'=>'required|max:200',
             'observacao'=>'required|max:200',
         ],[
+            'quantidade.required'=>"A :attribute é obrigatória!",
             'quantidade.max'=>" Só é permitido 200 caracteres em :attribute !",
+            'observacao.required'=>"A :attribute é obrigatória!",
             'observacao.max'=>" Só é permitido 200 caracteres em :attribute !",
         ]);
 
@@ -106,7 +108,9 @@ class PedidoController extends Controller
             'quantidade'=>'required|max:200',
             'observacao'=>'required|max:200',
         ],[
+            'quantidade.required'=>"A :attribute é obrigatória!",
             'quantidade.max'=>" Só é permitido 200 caracteres em :attribute !",
+            'observacao.required'=>"A :attribute é obrigatória!",
             'observacao.max'=>" Só é permitido 200 caracteres em :attribute !",
         ]);
 
